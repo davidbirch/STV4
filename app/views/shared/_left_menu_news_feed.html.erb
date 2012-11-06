@@ -1,0 +1,10 @@
+<% if !@news_entries.nil? %>
+  <div class="left_news_feed">
+    <ul>
+      <h3>Latest News</h3>
+      <% @news_entries.each do |news_entry| %>
+      <li><%= link_to news_entry.title, news_entry.url %> <%= news_entry.summary %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,233 @@
+/* The main CSS file */
+
+/*------------------------------------------------------------------------ 
+  Body, backgrounds, layouts, divs
+  ------------------------------------------------------------------------*/
+body {
+    background: #39414a url(/assets/stv-header.png) repeat-x 50% 0;
+    padding-top: 0px;
+}
+
+.row {
+    margin-right: -20px;
+}
+
+.main{
+    background: white;
+}
+
+[class*="span"] {
+    margin-left: 0px;
+}
+
+.stv-form{
+    margin-bottom: 18px;
+}
+
+.stv-form-buttons{
+    padding-left: 160px;
+}
+
+
+/*------------------------------------------------------------------------ 
+  Bootstrap customisations and tweaks
+  ------------------------------------------------------------------------*/
+
+.alert{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.centre{
+    text-align:center;
+}
+
+.advertisment{
+    margin-bottom: 0px;
+}
+
+.well, pre, .breadcrumb{
+    margin: 10px;
+}
+
+table.admin{
+    width: 728px;
+}
+
+
+/*------------------------------------------------------------------------ 
+  Header and Footer styles
+  ------------------------------------------------------------------------*/
+header {
+    height: 156px;
+    color: #fff;	
+}
+header h1 {
+    line-height: 80px;
+    font-size: 50px;
+    font-family: sans-serif;
+}
+header img {
+    vertical-align: 0px;
+}
+header p {
+    font-size: 24px;
+}
+header a:link{
+    text-decoration: none;
+    color: #ffffff;
+}
+header a:visited{
+    text-decoration: none;
+    color: #ffffff;
+}
+header a:active{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: transparent;
+}
+header a:hover{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.footer_nav  {
+    position: relative;
+    float: left;
+    width: 164px;
+    margin: 20px 10px;
+}
+
+.footer h4 {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-bottom: thin solid #E1E1E1;
+}
+
+.footer li{
+    list-style: none;
+}
+
+.footer img{
+    margin-bottom: 2px;
+}
+
+.upper_footer{
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    background: #f8f8f8;
+}
+
+.lower_footer{   
+    background: white;
+    min-height: 20px;
+}
+
+
+/*------------------------------------------------------------------------ 
+  The Left
+  ------------------------------------------------------------------------*/
+
+[class*="left_"] {
+    border-bottom: 1px solid #E0E0E0;
+    padding-top: 10px;
+}
+
+.left_content{
+    padding-top: 10px;
+    width: 220px;
+    border-right: 1px solid #E0E0E0;
+    border-bottom: none;
+}
+
+.left_content ul, .left_content img{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.left_content li{
+    list-style: none;
+}
+
+.left_news_feed li{
+    padding-bottom: 10px;
+    padding-right: 5px;
+}
+
+
+/*------------------------------------------------------------------------ 
+  The Right
+  ------------------------------------------------------------------------*/
+
+.right_content{
+    padding-top: 10px;
+    width: 758px;
+}
+
+.right_content p, .right_content h2, .right_content h3, .right_content img, .right_content table{
+    margin-left: 10px;
+}
+
+.right_content img{
+    margin-bottom: 10px;
+}
+
+/*------------------------------------------------------------------------ 
+  The Table !!Move to a separate CSS later!!
+  ------------------------------------------------------------------------*/
+
+table.program{
+	background-color: #fafafa;
+	border: 1px #000000 solid;
+	border-collapse: collapse;
+	border-spacing: 2px;
+	width: 728px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-size: 11px;
+    }
+col.col_time{
+	width: 7%;
+    }
+col.col_title{
+	width: 48%;
+    }
+col.col_sport{
+	width: 13%;
+    }
+col.col_channel{
+	width: 32%;
+    }
+.program_header{
+	background-color: #3266e6;
+	border-top: 1px #000000 solid;
+	border-bottom: 1px #000000 solid;
+	font-weight: bold;
+        font-size: 11px;
+	color: #fafafa;
+	text-align: left;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 0px;
+    }
+tr.program{
+	background-color: #fafafa;
+    }
+tr.program:hover{
+	background-color: #EEEEEE;
+    }
+td.program{
+	border-bottom: 1px #6699CC dotted;
+	text-align: left;
+	vertical-align: middle;
+	color: #404040;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+        font-size: 11px;
+    }

@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <div class="left_logged_in">
+    <div class="alert alert-success centre">
+      <i class="icon-user"></i> You are logged in!
+    </div>
+    <ul>
+      <h3>Admin Options</h3>
+      <li><a href="/Login">Login</a></li>
+      <li><a href="/Dashboard">Dashboard</a></li>
+      <li><%=link_to("Rules", rules_path) %></li>
+      <li><%=link_to("Channels", channels_path) %></li>
+      
+    </ul>
+  </div>
+<% end %>   
