@@ -1,8 +1,11 @@
 require 'spec_helper'
 
+# https://github.com/jnicklas/capybara
+# https://gist.github.com/428105
+
 describe "Static Pages - " do
   
-  describe "home page" do
+  describe "site" do
     
     before(:each) do
       get root_path
@@ -12,55 +15,74 @@ describe "Static Pages - " do
       response.status.should be(200)  
     end
     
+  end
+  
+  describe "home page" do
+    
+    before(:each) do
+      visit(root_path)
+    end
+    
+    it "should have the right path" do
+      current_path.should == root_path
+    end
+    
     it "should have the right title" do
-      response.body.should have_selector("title", :text => "Sport on Television in Australia")
+      page.find("title").should have_content("Sport on Television")
     end
     
     describe "header" do
       
       it "should exist" do
-        response.body.should have_selector("header")
+        page.find("header")
       end
       
       it "should have the right text" do
-        response.body.should have_selector("header", :text => "SPORT ON TV")
+        page.find("header").should have_content("SPORT ON TV")
       end
       
       it "should have the right text" do
-        response.body.should have_selector("header", :text => "Every sport on every channel")
+        page.find("header").should have_content("Every sport on every channel")
       end
       
     end
         
     describe "footer" do
       
-      it "should have a footer" do
-        response.body.should have_selector("footer")
+      it "should exist" do
+        page.find("footer")
       end
       
-      it "should exist" do
-        response.body.should have_selector(".upper_footer")
+      it "should have an upper section" do
+        page.find(".upper_footer")
       end
       
       it "should have a lower section" do
-        response.body.should have_selector(".lower_footer")
+        page.find(".lower_footer")
       end
       
-      it "should have social media links" do
-        response.body.should have_selector(".upper_footer", :text => "Get Social")
-      end
-      
-      #it "should have a list of regions" do
-      #  response.body.should have_selector(".upper_footer", :text => "Regions")
-      #end
-      
-      #it "should have a list of pages" do
-      #  response.body.should have_selector(".upper_footer", :text => "Pages")
-      #end
+      it "should have social media links in the upper section" do
+        find(".upper_footer").should have_content("Get Social")
+        end
       
     end
     
+    describe "left content" do
+      
+      it "should exist" do
+        page.find(".left_content")
+      end
+      
+    end
     
+    describe "right content" do
+      
+      it "should exist" do
+        page.find(".right_content")
+      end
+      
+    end    
     
   end
+  
 end
