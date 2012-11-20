@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+# Useful reference links
 # https://github.com/jnicklas/capybara
 # https://gist.github.com/428105
 
@@ -16,7 +17,7 @@ describe "Static Pages - " do
     end
     
   end
-  
+    
   describe "home page" do
     
     before(:each) do
@@ -28,21 +29,21 @@ describe "Static Pages - " do
     end
     
     it "should have the right title" do
-      page.find("title").should have_content("Sport on Television")
+      find("title").should have_content("Sport on Television")
     end
     
     describe "header" do
       
       it "should exist" do
-        page.find("header")
+        find("header")
       end
       
       it "should have the right text" do
-        page.find("header").should have_content("SPORT ON TV")
+        find("header").should have_content("SPORT ON TV")
       end
       
       it "should have the right text" do
-        page.find("header").should have_content("Every sport on every channel")
+        find("header").should have_content("Every sport on every channel")
       end
       
     end
@@ -50,27 +51,27 @@ describe "Static Pages - " do
     describe "footer" do
       
       it "should exist" do
-        page.find("footer")
+        find("footer")
       end
       
       it "should have an upper section" do
-        page.find(".upper_footer")
+        find(".upper_footer")
       end
       
       it "should have a lower section" do
-        page.find(".lower_footer")
+        find(".lower_footer")
       end
       
       it "should have social media links in the upper section" do
         find(".upper_footer").should have_content("Get Social")
-        end
+      end
       
     end
     
     describe "left content" do
       
       it "should exist" do
-        page.find(".left_content")
+        find(".left_content")
       end
       
     end
@@ -78,11 +79,20 @@ describe "Static Pages - " do
     describe "right content" do
       
       it "should exist" do
-        page.find(".right_content")
+        find(".right_content")
       end
       
-    end    
+    end
+    
+    describe "region list" do
+      
+      it "should exist in the right content of the home page" do
+        find(".right_content").should have_content("Region List")
+        find(".right_content").should have_content("Melbourne")
+        
+      end
+    end
     
   end
-  
+    
 end

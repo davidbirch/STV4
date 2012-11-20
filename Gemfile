@@ -25,10 +25,10 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem 'formtastic-bootstrap'
 
-# For testing
+# for testing
 gem 'rspec-rails'
 gem 'capybara'
-
+gem 'factory_girl_rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
