@@ -1,4 +1,4 @@
-class Region < ActiveRecord::Base
+class Sport < ActiveRecord::Base
   
   validates :name, :presence => true
   

@@ -1,10 +1,10 @@
-<%= form_for(@region) do |f| %>
-  <% if @region.errors.any? %>
+<%= form_for(@sport) do |f| %>
+  <% if @sport.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h2>
+      <h2><%= pluralize(@sport.errors.count, "error") %> prohibited this sport from being saved:</h2>
 
       <ul>
-      <% @region.errors.full_messages.each do |msg| %>
+      <% @sport.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

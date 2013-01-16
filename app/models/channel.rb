@@ -1,4 +1,4 @@
-class Region < ActiveRecord::Base
+class Channel < ActiveRecord::Base
   
   validates :name, :presence => true
   
