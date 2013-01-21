@@ -1,2 +1,0 @@
-module RawChannelsHelper
-end
