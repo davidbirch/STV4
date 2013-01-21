@@ -4,7 +4,7 @@ describe Region do
 
   it "has a valid factory" do
     region = FactoryGirl.create(:region)
-    puts("\n #{region.inspect}")
+    #puts("\n #{region.inspect}")
     region.should be_valid
   end
   

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Xmltv:</b>
+  <%= @raw_channel.xmltv_id %>
+</p>
+
+<p>
+  <b>Channel name:</b>
+  <%= @raw_channel.channel_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_raw_channel_path(@raw_channel) %> |
+<%= link_to 'Back', raw_channels_path %>

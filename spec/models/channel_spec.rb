@@ -4,7 +4,7 @@ describe Channel do
   
   it "has a valid factory" do
     channel = FactoryGirl.create(:channel)
-    puts("\n #{channel.inspect}")
+    #puts("\n #{channel.inspect}")
     channel.should be_valid
     
   end

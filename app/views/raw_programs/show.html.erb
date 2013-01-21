@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @raw_program.title %>
+</p>
+
+<p>
+  <b>Subtitle:</b>
+  <%= @raw_program.subtitle %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @raw_program.category %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @raw_program.description %>
+</p>
+
+<p>
+  <b>Start datetime:</b>
+  <%= @raw_program.start_datetime %>
+</p>
+
+<p>
+  <b>End datetime:</b>
+  <%= @raw_program.end_datetime %>
+</p>
+
+<p>
+  <b>Region name:</b>
+  <%= @raw_program.region_name %>
+</p>
+
+<p>
+  <b>Channel xmltv:</b>
+  <%= @raw_program.channel_xmltv_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_raw_program_path(@raw_program) %> |
+<%= link_to 'Back', raw_programs_path %>

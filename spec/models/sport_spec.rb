@@ -4,7 +4,7 @@ describe Sport do
   
   it "has a valid factory" do
     sport = FactoryGirl.create(:sport)
-    puts("\n #{sport.inspect}")
+    #puts("\n #{sport.inspect}")
     sport.should be_valid
   end
   

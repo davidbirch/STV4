@@ -1,5 +1,9 @@
 STV4::Application.routes.draw do
 
+  resources :raw_channels
+
+  resources :raw_programs
+
   resources :programs
 
   resources :channels
