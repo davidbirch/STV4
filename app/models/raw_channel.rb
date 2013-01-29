@@ -1,2 +1,2 @@
-class RawChannel < ActiveRecord::Base
+class RawChannel < ActiveRecord::Base 
 end
