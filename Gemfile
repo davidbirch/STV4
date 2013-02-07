@@ -14,6 +14,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'annotate'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'rspec-rails'

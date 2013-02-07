@@ -1,11 +1,19 @@
+# == Schema Information
+#
+# Table name: regions
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require "spec_helper"
 
 describe Region do
 
   it "has a valid factory" do
-    region = FactoryGirl.create(:region)
-    #puts("\n #{region.inspect}")
-    region.should be_valid
+    FactoryGirl.create(:region).should be_valid
   end
   
   it "is invalid without a region name" do

@@ -1,5 +1,7 @@
 STV4::Application.routes.draw do
 
+  resources :sport_keywords
+
   resources :raw_channels
 
   resources :raw_programs

@@ -1,0 +1,29 @@
+<h1>Listing sport_keywords</h1>
+
+<table>
+  <tr>
+    <th>Rule type</th>
+    <th>Value</th>
+    <th>Sport</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sport_keywords.each do |sport_keyword| %>
+  <tr>
+    <td><%= sport_keyword.rule_type %></td>
+    <td><%= sport_keyword.value %></td>
+    <td><%= sport_keyword.sport_id %></td>
+    <td><%= sport_keyword.priority %></td>
+    <td><%= link_to 'Show', sport_keyword %></td>
+    <td><%= link_to 'Edit', edit_sport_keyword_path(sport_keyword) %></td>
+    <td><%= link_to 'Destroy', sport_keyword, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sport keyword', new_sport_keyword_path %>

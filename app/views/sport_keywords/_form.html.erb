@@ -1,0 +1,33 @@
+<%= form_for(@sport_keyword) do |f| %>
+  <% if @sport_keyword.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sport_keyword.errors.count, "error") %> prohibited this sport_keyword from being saved:</h2>
+
+      <ul>
+      <% @sport_keyword.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rule_type %><br />
+    <%= f.text_field :rule_type %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :sport_id %><br />
+    <%= f.number_field :sport_id %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.number_field :priority %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

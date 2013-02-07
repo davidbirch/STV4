@@ -21,3 +21,31 @@ CSV.open("db/data/sports.csv", "r").each do |row|
     :name => row[0]
   )
 end
+
+# import the data for sports
+CSV.open("db/data/ruleset - black keywords.csv", "r").each do |row|
+  SportKeyword.find_or_create_by_value(
+    :rule_type => "Black Keyword",
+    :value => row[0]
+  )
+end
+
+# import the data for sports
+CSV.open("db/data/ruleset - white keywords.csv", "r").each do |row|
+  SportKeyword.find_or_create_by_value(
+    :rule_type => "White Keyword",
+    :value => row[0],
+    :sport => Sport.find_by_name(row[1]),
+    :priority => row[2]
+  )
+end
+
+# import the data for sports
+CSV.open("db/data/ruleset - white sports.csv", "r").each do |row|
+  SportKeyword.find_or_create_by_value(
+    :rule_type => "White Keyword",
+    :value => row[0],
+    :sport => Sport.find_by_name(row[1]),
+    :priority => row[2]
+  )
+end
