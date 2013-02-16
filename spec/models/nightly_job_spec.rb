@@ -29,7 +29,6 @@ describe NightlyJob do
       it "should complete" do
         nightly_job = NightlyJob.new
         
-        puts "hello"
         Program.all.count.should be > 0
         Program.historic.count.should eq 0
         Channel.all.count.should be > 0

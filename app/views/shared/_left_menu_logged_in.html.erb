@@ -5,10 +5,9 @@
     </div>
     <ul>
       <h3>Admin Options</h3>
-      <li><a href="/Login">Login</a></li>
-      <li><a href="/Dashboard">Dashboard</a></li>
-      <li><%=link_to("Rules", rules_path) %></li>
-      <li><%=link_to("Channels", channels_path) %></li>
+      <li><%= link_to 'Login', '/Login' %></li>
+      <li><%= link_to 'Dashboard', '/Dashboard' %></li>
+      <li><%= link_to 'Channels', channels_path %></li>
       
     </ul>
   </div>

@@ -10,5 +10,5 @@
  *
  *= require_self
  *= require_tree .
- * *= require formtastic-bootstrap
+ *= require formtastic-bootstrap
 */

@@ -1,10 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @channel.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_channel_path(@channel) %> |
-<%= link_to 'Back', channels_path %>
+<h3>Show Channel</h3>
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd class="stv-form"><%= @channel.name %>&nbsp;</dd>
+  <dt>Short Name</dt>
+  <dd class="stv-form"><%= @channel.short_name %>&nbsp;</dd>
+  <dt>Black Flag</dt>
+  <dd class="stv-form"><%= @channel.black_flag %>&nbsp;</dd>
+  <dt>XMLTV ID</dt>
+  <dd class="stv-form"><%= @channel.xmltv_id %>&nbsp;</dd>
+</dl>
+<div class="form-horizontal form-actions stv-form-buttons">
+  <%= link_to 'Edit', edit_channel_path(@channel), :class => 'btn btn-mini' %>
+  <%= link_to 'Back', channels_path , :class => 'btn btn-mini'%>
+</div>
+<h3>Programs</h3>
+<table class="table table-striped table-condensed admin">
+  <thead>
+    <tr>
+      <th>Region</th>
+      <th></th>
+      <th>Name</th>
+      <th>Sport</th>
+      <th>Date</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @channel.programs.chronological.by_title.each do |program| %>
+      <tr>
+        <td><%= program.region.name %></td>
+        <td><%= link_to "<i class=\"icon-google-plus\"></i>".html_safe, "http://www.google.com.au/search?q=" + program.full_title, :target => "_blank" %></td>
+        <td><%= program.full_title %></td>
+        <td><%= program.sport.name %></td>
+        <td><%= program.start_date %></td>
+        <td><%= program.start_time %></td>
+        <td><%= program.end_time %></td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,23 +1,35 @@
-<h1>Listing channels</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @channels.each do |channel| %>
-  <tr>
-    <td><%= channel.name %></td>
-    <td><%= link_to 'Show', channel %></td>
-    <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
-    <td><%= link_to 'Destroy', channel, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h3>Listing channels</h3>
+<p><%= link_to 'New', new_channel_path, :class => 'btn btn-mini btn-primary' %></p>
+<table class="table table-striped table-condensed admin">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Short Name</th>
+      <th>XMLTV ID</th>
+      <th>Program Count</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @channels.each do |channel| %>
+      <tr>
+        <td>
+        <% if channel.black_flag %>
+          <%= link_to "<i class=\"icon-minus-sign\"></i>".html_safe, toggle_black_flag_channel_path(channel), :method => :put %>
+        <% else %>
+          <%= link_to "<i class=\"icon-circle\"></i>".html_safe, toggle_black_flag_channel_path(channel), :method => :put %>
+        <% end %>
+        </td>
+        <td><%= link_to channel.name, channel %></td>
+        <td><%= channel.short_name %></td>
+        <td><%= channel.xmltv_id %></td>
+        <td><%= channel.programs.count %></td>
+        <td>
+          <%= link_to 'Edit', edit_channel_path(channel), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', channel, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Channel', new_channel_path %>

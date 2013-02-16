@@ -38,12 +38,14 @@ describe Channel do
     end
     
     context "where the channel already exists" do
+      it "does not create a duplicate channel"
     #  raw_channel_nine = FactoryGirl.create(:channel_nine)
     #  channel = Channel.create_from_raw_channel(raw_channel)
     #  Channel.find_all_by_name('Nine').count should eq(1)
     end
         
     context "where the channel does not exist" do
+      it "creates a new channel"
     #  raw_channel_seven = FactoryGirl.create(:channel_seven)
     #  channel = Channel.create_from_raw_channel(raw_channel)
     #  Channel.find_all_by_name('Seven').count should eq(1)

@@ -1,1 +1,8 @@
-<p></p>
+<% if !@regions.nil? %>
+<ul class="footer_nav">
+  <h4>Select Region</h4>
+  <% @regions.each do |region| %>
+  <li><%= link_to region.name, "/"+region.name+"/" %></li>
+  <% end %>
+</ul>
+<% end %>

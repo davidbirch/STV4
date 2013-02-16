@@ -4,10 +4,7 @@
       <h3>Select Sport</h3>
       <% @sports.each do |sport| %>
       <li>       
-        <%= link_to sport.sport_name, "/"+@region.region_name+"/"+sport.sport_name+"/" %>
-        <% if logged_in? %>
-          <%= link_to "<i class=\"icon-edit\"></i>".html_safe, sport_path(sport)  %>
-        <% end %>
+        <%= link_to sport.name, "/"+@region.name+"/"+sport.name+"/" %>
       </li>
       <% end %>
     </ul>

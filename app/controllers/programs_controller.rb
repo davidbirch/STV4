@@ -1,4 +1,7 @@
 class ProgramsController < ApplicationController
+  
+  before_filter :authenticate  
+    
   # GET /programs
   # GET /programs.json
   def index
@@ -14,6 +17,11 @@ class ProgramsController < ApplicationController
   # GET /programs/1.json
   def show
     @program = Program.find(params[:id])
+
+    @title = "Program: " + @program.full_title + "| Sport on Television in Australia"
+    @breadcrumb = "Program: "+ @program.full_title
+    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
 
     respond_to do |format|
       format.html # show.html.erb

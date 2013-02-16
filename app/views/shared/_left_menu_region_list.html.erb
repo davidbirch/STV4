@@ -4,10 +4,7 @@
       <h3>Select Region</h3>
       <% @regions.each do |region| %>
       <li>
-        <%= link_to region.region_name, "/"+region.region_name+"/" %>
-        <% if logged_in? %>
-          <%= link_to "<i class=\"icon-edit\"></i>".html_safe, region_path(region)  %>
-        <% end %>
+        <%= link_to region.name, "/"+region.name+"/" %>
       </li>
       <% end %>
     </ul>

@@ -8,7 +8,19 @@
   </div>
   <div class="row lower_footer">
     <div class="span12">
-      
+      <% if logged_in? %>
+        <pre>
+          Time.now = <%= Time.now %>
+          Time.now.gmtime = <%=Time.now.gmtime %>
+          Time.now.zone = <%=Time.now.zone %>
+          Time.now.isdst = <%=Time.now.isdst %>
+          Time.now.getlocal = <%=Time.now.getlocal %>
+          Time.now.getlocal.gmt_offset = <%=Time.now.getlocal.gmt_offset %>
+          Time.now.getlocal.isdst = <%=Time.now.getlocal.isdst %>
+          Time.now.getlocal.zone = <%=Time.now.getlocal.zone %>
+        </pre>
+        <%= debug params %>
+      <% end %> 
     </div>
   </div>
 </footer>

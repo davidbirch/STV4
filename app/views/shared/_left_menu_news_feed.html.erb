@@ -3,7 +3,7 @@
     <ul>
       <h3>Latest News</h3>
       <% @news_entries.each do |news_entry| %>
-      <li><%= link_to news_entry.title, news_entry.url %> <%= news_entry.summary %></li>
+      <li><%= link_to news_entry.title.html_safe, news_entry.url %> <%= news_entry.summary.html_safe %></li>
       <% end %>
     </ul>
   </div>

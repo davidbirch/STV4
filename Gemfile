@@ -9,22 +9,25 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem "twitter-bootstrap-rails"
-  gem 'formtastic-bootstrap'
+  
 end
 
 gem 'jquery-rails'
-gem 'annotate'
 gem 'whenever', :require => false
+gem 'feedzirra', '~> 0.2.0.rc2'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'hirb'
+  gem 'annotate'
 end
 
 group :test do
   gem 'capybara'
 end
+
+gem "twitter-bootstrap-rails"
+gem 'formtastic-bootstrap'
 
 

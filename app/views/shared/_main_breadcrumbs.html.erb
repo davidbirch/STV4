@@ -4,20 +4,20 @@
     <span class="divider">/</span>
   </li>
   <% if !@breadcrumb.nil? %>
-    <li class="active">
+  <li class="active">
     <%= @breadcrumb %>
   </li>
   <% elsif !@region.nil? && @sport.nil? %>
   <li class="active">
-    <%= @region.region_name %>
+    <%= @region.name %>
   </li>
   <% elsif !@sport.nil? %>
   <li>
-    <%= link_to @region.region_name, "/"+@region.region_name+"/" %>
+    <%= link_to @region.name, "/"+@region.name+"/" %>
     <span class="divider">/</span>
   </li>
   <li class="active">
-    <%= @sport.sport_name %>
+    <%= @sport.name %>
   </li>
   <% end %>
 </ul>

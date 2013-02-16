@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130203100501) do
+ActiveRecord::Schema.define(:version => 20130214120559) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130203100501) do
     t.string   "short_name"
     t.string   "free_or_pay"
     t.string   "xmltv_id"
+    t.boolean  "black_flag"
   end
 
   create_table "programs", :force => true do |t|
