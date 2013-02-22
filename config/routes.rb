@@ -15,6 +15,11 @@ STV4::Application.routes.draw do
   # -------------------------------------------------------
   # specific resource routes
   resources :programs
+  resources :regions
+  resources :sports
+  resources :sport_keywords
+  
+  
    
   resources :channels do
     member do

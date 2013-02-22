@@ -7,7 +7,7 @@
   <li class="active">
     <%= @breadcrumb %>
   </li>
-  <% elsif !@region.nil? && @sport.nil? %>
+  <% elsif !@region.nil? && @sport.nil? && params[:search].nil? %>
   <li class="active">
     <%= @region.name %>
   </li>
@@ -18,6 +18,14 @@
   </li>
   <li class="active">
     <%= @sport.name %>
+  </li>
+  <% elsif !params[:search].nil? %>
+  <li>
+    <%= link_to @region.name, "/"+@region.name+"/" %>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    Search results for '<%= params[:search] %>'
   </li>
   <% end %>
 </ul>

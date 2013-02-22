@@ -1,8 +1,16 @@
 class SportsController < ApplicationController
+  
+  before_filter :authenticate
+    
   # GET /sports
   # GET /sports.json
   def index
     @sports = Sport.all
+
+    @title = "Sports | Sport on Television in Australia"
+    @breadcrumb = "Sports"
+    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +22,11 @@ class SportsController < ApplicationController
   # GET /sports/1.json
   def show
     @sport = Sport.find(params[:id])
+
+    @title = "Sport: " + @sport.name + " | Sport on Television in Australia"
+    @breadcrumb = "Sport: "+ @sport.name
+    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
 
     respond_to do |format|
       format.html # show.html.erb

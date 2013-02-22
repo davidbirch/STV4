@@ -1,6 +1,5 @@
 <p>Sport On Television provides sports guide information for the following regions:</p>
-<ul>
 <% @regions.each do |region| %>
-  <li><%= link_to region.name, "/"+region.name+"/" %></li>
+    <%= link_to region.name, "/"+region.name+"/", :class => 'btn btn-large btn-block btn-primary' %>
 <% end %>
-</ul>
+

@@ -1,30 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @program.title %>
-</p>
-
-<p>
-  <b>Subtitle:</b>
-  <%= @program.subtitle %>
-</p>
-
-<p>
-  <b>Region:</b>
-  <%= @program.region_id %>
-</p>
-
-<p>
-  <b>Sport:</b>
-  <%= @program.sport_id %>
-</p>
-
-<p>
-  <b>Channel:</b>
-  <%= @program.channel_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_program_path(@program) %> |
-<%= link_to 'Back', programs_path %>
+<h3>Show Program</h3>
+<dl class="dl-horizontal">
+  <dt>Title</dt>
+  <dd class="stv-form"><%= @program.title %>&nbsp;</dd>
+  <dt>Subtitle</dt>
+  <dd class="stv-form"><%= @program.subtitle %>&nbsp;</dd>
+  <dt>Full Title (computed)</dt>
+  <dd class="stv-form"><%= @program.full_title %>
+    <p>
+      <%= link_to "<i class=\"icon-bookmark-empty\"></i>".html_safe, new_sport_keyword_path(:rule_type => 'White Keyword', :priority => 10, :value => @program.full_title ), :target => "_blank" %>
+      <%= link_to "<i class=\"icon-bookmark\"></i>".html_safe, new_sport_keyword_path(:rule_type => 'Black Keyword', :value => @program.full_title ), :target => "_blank" %>
+    </p>
+  </dd>
+  <dt>Description</dt>
+  <dd class="stv-form"><%= @program.description %>&nbsp;</dd>
+  <dt>Category</dt>
+  <dd class="stv-form"><%= @program.category %>&nbsp;</dd>
+  <dt>Region</dt>
+  <dd class="stv-form"><%= @program.region.name %>&nbsp;</dd>
+  <dt>Sport</dt>
+  <dd class="stv-form"><%= @program.sport.name %>&nbsp;</dd>
+  <dt>Channel</dt>
+  <dd class="stv-form"><%= @program.channel.name %>&nbsp;</dd>
+  <dt>UTC Start Date/Time</dt>
+  <dd class="stv-form"><%= @program.start_datetime %>&nbsp;</dd>
+  <dt>UTC End Date/Time</dt>
+  <dd class="stv-form"><%= @program.end_datetime %>&nbsp;</dd>
+  <dt>Local Time Zone</dt>
+  <dd class="stv-form"><%= @program.local_time_zone %>&nbsp;</dd>
+  <dt>Local Start Date</dt>
+  <dd class="stv-form"><%= @program.local_start_date %>&nbsp;</dd>
+  <dt>Local Start Time</dt>
+  <dd class="stv-form"><%= @program.local_start_time %>&nbsp;</dd>
+  <dt>Local End Date</dt>
+  <dd class="stv-form"><%= @program.local_end_date %>&nbsp;</dd>
+  <dt>Local End Time</dt>
+  <dd class="stv-form"><%= @program.local_end_time %>&nbsp;</dd>
+</dl>
+<div class="form-horizontal form-actions stv-form-buttons">
+  <%= link_to 'Edit', edit_program_path(@program), :class => 'btn btn-mini' %>
+  <%= link_to 'Back', programs_path , :class => 'btn btn-mini'%>
+</div>

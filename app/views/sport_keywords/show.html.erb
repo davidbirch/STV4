@@ -1,25 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Rule type:</b>
-  <%= @sport_keyword.rule_type %>
-</p>
-
-<p>
-  <b>Value:</b>
-  <%= @sport_keyword.value %>
-</p>
-
-<p>
-  <b>Sport:</b>
-  <%= @sport_keyword.sport_id %>
-</p>
-
-<p>
-  <b>Priority:</b>
-  <%= @sport_keyword.priority %>
-</p>
-
-
-<%= link_to 'Edit', edit_sport_keyword_path(@sport_keyword) %> |
-<%= link_to 'Back', sport_keywords_path %>
+<h3>Show Sport Keyword</h3>
+<dl class="dl-horizontal">
+  <dt>Rule Type</dt>
+  <dd class="stv-form"><%= @sport_keyword.rule_type %>&nbsp;</dd>
+  <dt>Value</dt>
+  <dd class="stv-form"><%= @sport_keyword.value %>&nbsp;</dd>
+  <dt>Sport</dt>
+  <dd class="stv-form"><% unless @sport_keyword.sport.nil? %><%= @sport_keyword.sport.name %><% end %>&nbsp;</dd>
+  <dt>Priority</dt>
+  <dd class="stv-form"><%= @sport_keyword.priority %>&nbsp;</dd>
+</dl>
+<div class="form-horizontal form-actions stv-form-buttons">
+  <%= link_to 'Edit', edit_sport_keyword_path(@sport_keyword), :class => 'btn btn-mini' %>
+  <%= link_to 'Back', sport_keywords_path , :class => 'btn btn-mini'%>
+</div>

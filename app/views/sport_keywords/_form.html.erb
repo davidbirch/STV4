@@ -1,33 +1,11 @@
-<%= form_for(@sport_keyword) do |f| %>
-  <% if @sport_keyword.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sport_keyword.errors.count, "error") %> prohibited this sport_keyword from being saved:</h2>
-
-      <ul>
-      <% @sport_keyword.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @sport_keyword, {:html => { :class => "form-horizontal" }} do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :rule_type, :input_html => {:value => params[:rule_type] } %>
+    <%= f.input :value, :input_html => { :value => params[:value] }  %>
+    <%= f.input :sport, :input_html => { :value => params[:sport] } %>
+    <%= f.input :priority, :input_html => { :value => params[:priority] } %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :rule_type %><br />
-    <%= f.text_field :rule_type %>
-  </div>
-  <div class="field">
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
-  </div>
-  <div class="field">
-    <%= f.label :sport_id %><br />
-    <%= f.number_field :sport_id %>
-  </div>
-  <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.number_field :priority %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+      <%= f.action :submit, :button_html => { :class => "btn-mini btn-primary"} %> 
+  <% end %>
 <% end %>

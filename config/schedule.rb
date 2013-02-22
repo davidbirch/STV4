@@ -7,14 +7,15 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-# every 2.hours do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-#   rake "some:great:rake:task"
-# end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
 
-# Learn more: http://github.com/javan/whenever
+every 1.day, :at => '1:00 am' do
+  command "perl /home/zebraadmin/get_xmltv_guide_data.pl >> /home/zebraadmin/log/cron.log"
+end
+
+every 1.day, :at => '2:00 am' do
+  command "perl /home/zebraadmin/load_raw_guide_data.pl >> /home/zebraadmin/log/cron.log"
+end
+
+every 3.hours do
+  runner 'NightlyJob.new', :environment => 'development' 
+end

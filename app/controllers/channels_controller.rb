@@ -23,7 +23,7 @@ class ChannelsController < ApplicationController
   def show
     @channel = Channel.find(params[:id])
     
-    @title = "Channel: " + @channel.name + "| Sport on Television in Australia"
+    @title = "Channel: " + @channel.name + " | Sport on Television in Australia"
     @breadcrumb = "Channel: "+ @channel.name
     @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
     @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
@@ -54,7 +54,7 @@ class ChannelsController < ApplicationController
   def edit
     @channel = Channel.find(params[:id])
     
-    @title = "Channel: " + @channel.name + "| Sport on Television in Australia"
+    @title = "Channel: " + @channel.name + " | Sport on Television in Australia"
     @breadcrumb = "Channel: "+ @channel.name
     @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
     @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
@@ -68,7 +68,7 @@ class ChannelsController < ApplicationController
 
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to @channel, notice: 'Channel @channel.name was successfully created.' }
+        format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
         format.json { render json: @channel, status: :created, location: @channel }
       else
         format.html { render action: "new" }
@@ -84,7 +84,7 @@ class ChannelsController < ApplicationController
 
     respond_to do |format|
       if @channel.update_attributes(params[:channel])
-        format.html { redirect_to @channel, notice: 'Channel @channel.name was successfully updated.' }
+        format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

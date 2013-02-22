@@ -1,1 +1,36 @@
-<p><%= @region.name %></p>
+<h3>Show Region</h3>
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd class="stv-form"><%= @region.name %>&nbsp;</dd>
+</dl>
+<div class="form-horizontal form-actions stv-form-buttons">
+  <%= link_to 'Edit', edit_region_path(@region), :class => 'btn btn-mini' %>
+  <%= link_to 'Back', regions_path , :class => 'btn btn-mini'%>
+</div>
+<h3>Programs</h3>
+<table class="table table-striped table-condensed admin">
+  <thead>
+    <tr>
+      <th>Sport</th>
+      <th>Channel</th>
+      <th></th>
+      <th>Full Title</th>
+      <th>Date</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @region.programs.chronological.by_title.each do |program| %>
+      <tr>
+        <td><%= program.sport.name %></td>
+        <td><%= program.channel.name %></td>
+        <td><%= link_to "<i class=\"icon-search\"></i>".html_safe, "http://www.google.com.au/search?q=" + program.full_title, :target => "_blank" %></td>
+        <td><%= link_to program.full_title, program %></td>
+        <td><%= program.local_start_date %></td>
+        <td><%= program.local_start_time %></td>
+        <td><%= program.local_end_time %></td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>

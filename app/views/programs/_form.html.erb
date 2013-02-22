@@ -1,37 +1,16 @@
-<%= form_for(@program) do |f| %>
-  <% if @program.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@program.errors.count, "error") %> prohibited this program from being saved:</h2>
-
-      <ul>
-      <% @program.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @program, {:html => { :class => "form-horizontal" }} do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :title %>
+    <%= f.input :subtitle %>
+    <%= f.input :description %>
+    <%= f.input :category %>
+    <%= f.input :region %>
+    <%= f.input :sport %>
+    <%= f.input :channel %>    
+    <%= f.input :start_datetime %>
+    <%= f.input :end_datetime %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :subtitle %><br />
-    <%= f.text_field :subtitle %>
-  </div>
-  <div class="field">
-    <%= f.label :region_id %><br />
-    <%= f.number_field :region_id %>
-  </div>
-  <div class="field">
-    <%= f.label :sport_id %><br />
-    <%= f.number_field :sport_id %>
-  </div>
-  <div class="field">
-    <%= f.label :channel_id %><br />
-    <%= f.number_field :channel_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+      <%= f.action :submit, :button_html => { :class => "btn-mini btn-primary"} %> 
+  <% end %>
 <% end %>

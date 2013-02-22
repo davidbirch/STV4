@@ -1,52 +1,57 @@
-<% if !@programs.nil? %>
-  <% last_program = nil %>
+<% if @programs.nil? || @programs.count == 0 %>
+  <p>There are no current results for <%= params[:sport_name] %> in <%= params[:region_name] %>.</p>
+<% else %>
+<% last_program = nil %>
+<% program_count = @programs.count %>
 <% day_count = 0 %>
 <% @programs.each do |program| %>
-<% if !last_program.nil? && program.start_date != last_program.start_date %>
+<% if !last_program.nil? && program.local_start_date != last_program.local_start_date %>
         </td>
       </tr>
     </tbody>
   </table>
 <% end %>
-<% if last_program.nil? || program.start_date != last_program.start_date %>
-  <% if day_count == 2 || day_count == 5 || day_count == 8 %>
+<% if last_program.nil? || program.local_start_date != last_program.local_start_date %>
+  <% if program_count > 20 || day_count == 2 || day_count == 5 || day_count == 8 %>
   <p class="centre advertisment"><small>Advertisment</small></p>
   <img src="http://placehold.it/728x90" alt="placeholder 728x90">
   <% end %>  
-  <table class="program">
+  <table class="table table-condensed table-hover programs">
     <colgroup>
       <col class="col_time">
       <col class="col_title">
       <col class="col_sport">
       <col class="col_channel">
     </colgroup>
+    <thead>
+      <tr>
+       <th colspan="4"><%= program.local_start_date %></th>
+      </tr>
+      <tr>
+        <th>Time</th> 
+        <th>Title</th>
+        <th>Sport</th>
+        <th>Channel</th>
+      </tr> 
+    </thead>
     <tbody>
-      <tr>
-       <td class="program_header" colspan="4"><%= program.start_date %></td>
-      </tr>
-      <tr>
-        <th class="program_header">Time</th> 
-        <th class="program_header">Title</th>
-        <th class="program_header">Sport</th>
-        <th class="program_header">Channel</th>
-      </tr>
       <tr class="program">
-        <td class="program"><%= program.start_time %></td>
-        <td class="program"><%= program.full_title %></td>
-        <td class="program"><%= program.sport.name %></td>
-        <td class="program"><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%= program.start_time %> to <%= program.end_time %>)
+        <td class="program"><%= program.local_start_time %></td>
+        <td class="program"><% if logged_in? %><%= link_to program.full_title, program %><% else %><%= program.full_title %><% end %></td>
+        <td class="program"><% if logged_in? %><%= link_to program.sport.name, program.sport %><% else %><%= program.sport.name %><% end %></td>
+        <td class="program"><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%= program.local_start_time %> to <%= program.local_end_time %>)
 <% day_count = day_count + 1 %>
 <% else %>
 <% if program.sport.name == last_program.sport.name && program.channel.short_name == last_program.channel.short_name && (program.start_datetime == last_program.start_datetime || program.end_datetime == last_program.end_datetime) %>
-       <% if program.channel.name != last_program.channel.name %><br><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%=program.start_time%> to <%=program.end_time%>)<% end %>          
+       <% if program.channel.name != last_program.channel.name %><br><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%=program.local_start_time%> to <%=program.local_end_time%>)<% end %>          
 <% else %>
         </td>
       </tr>
       <tr class="program">
-        <td class="program"><%= program.start_time %></td>
-        <td class="program"><%= program.full_title %></td>
-        <td class="program"><%= program.sport.name %></td>
-        <td class="program"><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%= program.start_time %> to <%= program.end_time %>)
+        <td class="program"><%= program.local_start_time %></td>
+        <td class="program"><% if logged_in? %><%= link_to program.full_title, program %><% else %><%= program.full_title %><% end %></td>
+        <td class="program"><% if logged_in? %><%= link_to program.sport.name, program.sport %><% else %><%= program.sport.name %><% end %></td>
+        <td class="program"><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%= program.local_start_time %> to <%= program.local_end_time %>)
 <% end %>
 <% end %>
 <% last_program = program %>
@@ -55,6 +60,4 @@
       </tr>
     </tbody>
   </table>
-<% else %>
-  No results
 <% end %>

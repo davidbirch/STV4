@@ -5,7 +5,25 @@ class ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
+    
     @programs = Program.all
+    
+    if params[:region]
+      @programs = @programs.where(:region_id => Region.find_by_name(params[:region]))
+    end
+    
+    if params[:sport]
+      @programs = @programs.where(:sport_id => Sport.find_by_name(params[:sport]))
+    end
+    
+    if params[:channel]
+      @programs = @programs.where(:channel_id => Channel.find_by_name(params[:channel]))
+    end
+        
+    @title = "Programs | Sport on Television in Australia"
+    @breadcrumb = "Programs"
+    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +36,7 @@ class ProgramsController < ApplicationController
   def show
     @program = Program.find(params[:id])
 
-    @title = "Program: " + @program.full_title + "| Sport on Television in Australia"
+    @title = "Program: " + @program.full_title + " | Sport on Television in Australia"
     @breadcrumb = "Program: "+ @program.full_title
     @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
     @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 

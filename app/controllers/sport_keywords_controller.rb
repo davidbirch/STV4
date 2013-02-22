@@ -1,9 +1,18 @@
 class SportKeywordsController < ApplicationController
+  
+  before_filter :authenticate
+    
   # GET /sport_keywords
   # GET /sport_keywords.json
   def index
-    @sport_keywords = SportKeyword.all
+    @sport_keywords = SportKeyword.order("priority DESC, value_length DESC").all
+    
+    @title = "Sport Keywords | Sport on Television in Australia"
+    @breadcrumb = "Sport Keywords"
+    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
 
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sport_keywords }
@@ -14,6 +23,12 @@ class SportKeywordsController < ApplicationController
   # GET /sport_keywords/1.json
   def show
     @sport_keyword = SportKeyword.find(params[:id])
+
+    @title = "Sport Keyword: " + @sport_keyword.value + " | Sport on Television in Australia"
+    @breadcrumb = "Sport: "+ @sport_keyword.value
+    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
+
 
     respond_to do |format|
       format.html # show.html.erb

@@ -15,11 +15,6 @@ class ApplicationController < ActionController::Base
     # these variables are used in the common header code
     @meta_author = "contact@sportontv.com.au"
     
-    # this is used for the news feed
-    feed_uri = "http://au.news.search.yahoo.com/news/rss?p=sport"
-    news_feed = Feedzirra::Feed.fetch_and_parse(feed_uri)
-    @news_entries = news_feed.entries  
-    
   end
     
   protected

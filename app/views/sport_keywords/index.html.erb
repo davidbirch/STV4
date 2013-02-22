@@ -1,29 +1,27 @@
-<h1>Listing sport_keywords</h1>
-
-<table>
-  <tr>
-    <th>Rule type</th>
-    <th>Value</th>
-    <th>Sport</th>
-    <th>Priority</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @sport_keywords.each do |sport_keyword| %>
-  <tr>
-    <td><%= sport_keyword.rule_type %></td>
-    <td><%= sport_keyword.value %></td>
-    <td><%= sport_keyword.sport_id %></td>
-    <td><%= sport_keyword.priority %></td>
-    <td><%= link_to 'Show', sport_keyword %></td>
-    <td><%= link_to 'Edit', edit_sport_keyword_path(sport_keyword) %></td>
-    <td><%= link_to 'Destroy', sport_keyword, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h3>Listing Sport Keywords</h3>
+<p><%= link_to 'New', new_sport_keyword_path, :class => 'btn btn-mini btn-primary' %></p>
+<table class="table table-striped table-condensed admin">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Value</th>
+      <th>Sport</th>
+      <th>Priority</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sport_keywords.each do |sport_keyword| %>
+      <tr>
+        <td><%= sport_keyword.rule_type %></td>
+        <td><%= link_to sport_keyword.value, sport_keyword %></td>
+        <td><% unless sport_keyword.sport.nil? %><%= sport_keyword.sport.name %><% end %></td>
+        <td><%= sport_keyword.priority %></td>
+        <td>
+          <%= link_to 'Edit', edit_sport_keyword_path(sport_keyword), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', sport_keyword, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Sport keyword', new_sport_keyword_path %>
