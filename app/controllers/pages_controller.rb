@@ -1,6 +1,15 @@
 class PagesController < ApplicationController
   
-  before_filter :authenticate, :except => [:about, :privacy, :contact]
+  before_filter :authenticate, :except => [:about, :privacy, :contact, :mobile_under_construction]
+  
+  def mobile_under_construction
+    @title = "SPORT ON TV"
+    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight."   
+    
+    render :layout => 'mobile'
+    
+  end
   
   def privacy
     @title = "Privacy Statement | Sport on Television in Australia"

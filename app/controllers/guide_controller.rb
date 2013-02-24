@@ -90,19 +90,26 @@ class GuideController < ApplicationController
   
     def page_news_entries
       
-      if @sport.nil?
-        temp_sport = "Sport"
-      else
-        temp_sport = @sport.name
-      end
+      #if @sport.nil?
+      #  temp_sport = "Sport"
+      #else
+      #  temp_sport = @sport.name
+      #end
       
-      if @region.nil?
-        temp_region = "Australia"
+      #if @region.nil?
+      #  temp_region = "Australia"
+      #else
+      #  temp_region = @region.name+"+Australia"
+      #end
+       
+      if !@sport.nil?
+        feed_uri_search_string = URI.escape(@sport.name)
+      elsif !@region.nil?
+        feed_uri_search_string = URI.escape(@region.name)
       else
-        temp_region = @region.name+"+Australia"
+        feed_uri_search_string = URI.escape("Sport")
       end
             
-      feed_uri_search_string = "#{temp_sport} #{temp_region}".gsub(' ','+')
       feed_uri = "http://au.news.search.yahoo.com/news/rss?p=#{feed_uri_search_string}"
       news_feed = Feedzirra::Feed.fetch_and_parse(feed_uri)
       news_feed.entries  

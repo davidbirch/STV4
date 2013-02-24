@@ -17,5 +17,5 @@ every 1.day, :at => '2:00 am' do
 end
 
 every 3.hours do
-  runner 'NightlyJob.new', :environment => 'development' 
+  runner 'NightlyJob.new', :environment => 'production' 
 end

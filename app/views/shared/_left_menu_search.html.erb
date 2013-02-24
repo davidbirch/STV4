@@ -1,6 +1,6 @@
 <% if !@region.nil? %>
   <div class="left_search">
-    <%= form_tag("", :method => "get") do %>
+    <%= form_tag(:method => "get") do %>
       <%= search_field_tag :search, params[:search], :onfocus => "this.value=''", :onblur => "if (this.value == '') {this.value = 'Search...';}" %>
       <button class='btn btn-inverse'>
         <i class="icon-search"></i>

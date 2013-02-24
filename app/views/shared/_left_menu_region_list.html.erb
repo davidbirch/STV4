@@ -1,10 +1,10 @@
 <% if !@regions.nil? %>
   <div class="left_region_list">
     <ul>
-      <h3>Select Region</h3>
+      <li><h3>Select Region</h3></li>
       <% @regions.each do |region| %>
       <li>
-        <%= link_to region.name, "/"+region.name+"/" %>
+        <%= link_to region.name, URI.escape("/"+region.name+"/") %>
       </li>
       <% end %>
     </ul>

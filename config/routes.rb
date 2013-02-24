@@ -1,9 +1,15 @@
 STV4::Application.routes.draw do
 
+  require 'subdomain'
+    
   # -------------------------------------------------------
-  # default route to the region index page
-  root :to => 'guide#index'
-  
+  # special route for all subdomains
+  constraints (Subdomain) do
+    match '/'                         => 'pages#mobile_under_construction'
+    match ':region_name'              => 'pages#mobile_under_construction'
+    match ':region_name/:sport_name'  => 'pages#mobile_under_construction'
+  end
+    
   # -------------------------------------------------------
   # static pages of supporting information
   match 'About'    => 'pages#about'
@@ -18,8 +24,6 @@ STV4::Application.routes.draw do
   resources :regions
   resources :sports
   resources :sport_keywords
-  
-  
    
   resources :channels do
     member do
@@ -35,6 +39,10 @@ STV4::Application.routes.draw do
     
   # special route for /region/sport
   match ':region_name/:sport_name' => 'guide#show'
+  
+  # -------------------------------------------------------
+  # default route to the region index page
+  root :to => 'guide#index'
   
   
  end

@@ -13,7 +13,7 @@
   </li>
   <% elsif !@sport.nil? %>
   <li>
-    <%= link_to @region.name, "/"+@region.name+"/" %>
+    <%= link_to @region.name, URI.escape("/"+@region.name+"/") %>
     <span class="divider">/</span>
   </li>
   <li class="active">
@@ -21,7 +21,7 @@
   </li>
   <% elsif !params[:search].nil? %>
   <li>
-    <%= link_to @region.name, "/"+@region.name+"/" %>
+    <%= link_to @region.name, URI.escape("/"+@region.name+"/") %>
     <span class="divider">/</span>
   </li>
   <li class="active">

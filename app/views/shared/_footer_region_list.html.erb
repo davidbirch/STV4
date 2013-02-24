@@ -1,8 +1,8 @@
 <% if !@regions.nil? %>
 <ul class="footer_nav">
-  <h4>Select Region</h4>
+  <li><h4>Select Region</h4></li>
   <% @regions.each do |region| %>
-  <li><%= link_to region.name, "/"+region.name+"/" %></li>
+  <li><%= link_to region.name, URI.escape("/"+region.name+"/") %></li>
   <% end %>
 </ul>
 <% end %>
