@@ -12,8 +12,8 @@
   </table>
 <% end %>
 <% if last_program.nil? || program.local_start_date != last_program.local_start_date %>
-  <% if program_count > 20 || day_count == 2 || day_count == 5 || day_count == 8 %>
-  <p class="centre advertisment"><small>Advertisment</small></p>
+  <% if (program_count > 20 && day_count == 0) || day_count == 1 || (day_count == 2 && program_count <= 20)%>
+  <% if !logged_in? %>
   <div class="advertisment_content">
     <script type="text/javascript"><!--
       google_ad_client = "ca-pub-4406472656891849";
@@ -27,6 +27,7 @@
       src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
   </div>
+  <% end %>
   <% end %>  
   <table class="table table-condensed table-hover programs">
     <colgroup>

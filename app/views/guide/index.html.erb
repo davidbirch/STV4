@@ -2,7 +2,7 @@
 <% @regions.each do |region| %>
     <%= link_to region.name, "/"+region.name+"/", :class => 'btn btn-large btn-block btn-primary' %>
 <% end %>
-<p class="centre advertisment"><small>Advertisment</small></p>
+<% if !logged_in? %>
   <div class="advertisment_content">
     <script type="text/javascript"><!--
       google_ad_client = "ca-pub-4406472656891849";
@@ -16,4 +16,5 @@
       src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
   </div>
+<% end %>
 
