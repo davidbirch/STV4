@@ -33,6 +33,10 @@ body {
   Bootstrap customisations and tweaks
   ------------------------------------------------------------------------*/
 
+[class^="icon-"] {
+  background-image:none;
+}
+
 .alert, .btn{
     margin-left: 10px;
     margin-right: 10px;
