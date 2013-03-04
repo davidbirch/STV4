@@ -31,6 +31,8 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    bourne (1.1.2)
+      mocha (= 0.10.5)
     builder (3.0.4)
     capybara (2.0.2)
       mime-types (>= 1.16)
@@ -87,7 +89,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.21)
+    mocha (0.10.5)
+      metaclass (~> 0.0.1)
     multi_json (1.6.1)
     mysql2 (0.3.11)
     nokogiri (1.5.6)
@@ -141,6 +146,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    shoulda-matchers (1.4.2)
+      activesupport (>= 3.0.0)
+      bourne (~> 1.1.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -182,6 +190,7 @@ DEPENDENCIES
   rails (= 3.2.12)
   rspec-rails
   sass-rails (~> 3.2.3)
+  shoulda-matchers
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   whenever

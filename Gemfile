@@ -18,6 +18,7 @@ gem 'feedzirra', '~> 0.2.0.rc2'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'hirb'
   gem 'annotate'

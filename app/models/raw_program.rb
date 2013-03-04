@@ -24,7 +24,7 @@ class RawProgram < ActiveRecord::Base
   validates :end_datetime, :presence => true
   
   scope :historic, lambda {
-      where("end_datetime < ?", Time.now + 10.hours)
+      where("end_datetime < ?", Time.now)
   }  
   
 end
