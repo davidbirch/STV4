@@ -11,10 +11,10 @@
 
 class RawChannel < ActiveRecord::Base
   
-  validates :xmltv_id, :presence => true
-  validates :channel_name, :presence => true
-  validates :xmltv_id, :uniqueness => true
-  validates :channel_name, :uniqueness => true
+  validates_presence_of :xmltv_id
+  validates_presence_of :channel_name
   
+  validates_uniqueness_of :xmltv_id
+  validates_uniqueness_of :channel_name  
     
 end

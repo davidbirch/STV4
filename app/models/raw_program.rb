@@ -17,11 +17,11 @@
 
 class RawProgram < ActiveRecord::Base
   
-  validates :title, :presence => true
-  validates :region_name, :presence => true
-  validates :channel_xmltv_id, :presence => true
-  validates :start_datetime, :presence => true
-  validates :end_datetime, :presence => true
+  validates_presence_of :title
+  validates_presence_of :region_name
+  validates_presence_of :channel_xmltv_id
+  validates_presence_of :start_datetime
+  validates_presence_of :end_datetime
   
   scope :historic, lambda {
       where("end_datetime < ?", Time.now)

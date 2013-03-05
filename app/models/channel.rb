@@ -13,14 +13,16 @@
 
 class Channel < ActiveRecord::Base
   
-  validates :name, :presence => true
-  validates :short_name, :presence => true
-  validates :xmltv_id, :presence => true
-  
-  validates :name, :uniqueness => true
-  validates :xmltv_id, :uniqueness => true
-  
   has_many :programs
+  
+  validates_presence_of :name
+  validates_presence_of :short_name
+  validates_presence_of :xmltv_id
+  
+  validates_uniqueness_of :name
+  validates_uniqueness_of :xmltv_id
+  
+  
   
   class << self
     

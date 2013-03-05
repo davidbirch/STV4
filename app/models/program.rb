@@ -22,12 +22,16 @@ class Program < ActiveRecord::Base
   belongs_to :region
   belongs_to :sport
   
-  validates :title, :presence => true
-  validates :start_datetime, :presence => true
-  validates :end_datetime, :presence => true
-  validates :region_id, :presence => true
-  validates :sport_id, :presence => true
-  validates :channel_id, :presence => true
+  validates_presence_of :title
+  validates_presence_of :start_datetime
+  validates_presence_of :end_datetime
+  validates_presence_of :region_id
+  validates_presence_of :sport_id
+  validates_presence_of :channel_id
+  
+  validates_uniqueness_of :channel_id , :scope => [:region_id, :start_datetime, :end_datetime]
+  
+  
   
   scope :historic, lambda {
       where("end_datetime < ?", Time.now)

@@ -10,11 +10,14 @@
 
 class Sport < ActiveRecord::Base
   
-  validates :name, :presence => true
-  validates :name, :uniqueness => true
-  
   has_many :programs
   has_many :sport_keywords
+  
+  validates_presence_of :name
+  
+  validates_uniqueness_of :name
+  
+  
   
   class << self
     

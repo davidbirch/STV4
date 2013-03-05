@@ -13,13 +13,13 @@
 
 class SportKeyword < ActiveRecord::Base
   
-  validates :value, :presence => true
-  validates :rule_type, :presence => true
-  
-  validates :value, :uniqueness => true
-  
   belongs_to :sport
   
+  validates_presence_of :value
+  validates_presence_of :rule_type
+  
+  validates_uniqueness_of :value
+    
   default_scope :select => "*, LENGTH(value) as value_length"
      
   class << self
