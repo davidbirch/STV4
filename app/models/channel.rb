@@ -17,13 +17,21 @@ class Channel < ActiveRecord::Base
   validates :short_name, :presence => true
   validates :xmltv_id, :presence => true
   
+  validates :name, :uniqueness => true
+  validates :xmltv_id, :uniqueness => true
+  
   has_many :programs
   
-  def self.create_from_raw_channel(raw_channel)
-    Channel.find_or_create_by_name(raw_channel.channel_name,
-      :short_name => raw_channel.channel_name[0,4],
-      :xmltv_id => raw_channel.xmltv_id 
-    )
+  class << self
+    
+    def create_from_raw_channel(raw_channel)
+      Channel.create(
+        :name       => raw_channel.channel_name,
+        :short_name => raw_channel.channel_name[0,4],
+        :xmltv_id   => raw_channel.xmltv_id 
+      )
+    end
+    
   end
   
 end

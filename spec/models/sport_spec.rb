@@ -16,10 +16,10 @@ describe Sport do
     FactoryGirl.create(:sport).should be_valid
   end
   
-  it "is invalid without a sport name" do
-    FactoryGirl.build(:sport, name: nil).should_not be_valid
+  it "is invalid without a name" do
+    FactoryGirl.build(:sport, name: nil).should validate_presence_of(:name)
   end
-  
+ 
   it "is invalid without a unique name" do
     FactoryGirl.build(:sport).should validate_uniqueness_of(:name)
   end
