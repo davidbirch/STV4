@@ -107,12 +107,6 @@ describe Program do
     end  
   end
      
-  it "can create a program based on a raw_program" do
-  #  tennis_raw_program = FactoryGirl.create(:tennis_raw_program)
-  #  channel_seven = FactoryGirl.create(:channel_seven)
-  #  Program.create_from_raw_program(tennis_raw_program).should be_valid
-  end
-
   describe "can create a program based on a raw program" do
     
     before :each do

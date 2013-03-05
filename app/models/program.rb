@@ -81,28 +81,27 @@ class Program < ActiveRecord::Base
       region = Region.find_by_name(raw_program.region_name)
       channel = Channel.find_by_xmltv_id(raw_program.channel_xmltv_id)
           
-      unless sport.nil? || region.nil? || channel.nil?
+             
+      # bug where the time zone is not being est properly, calling an 'inspect' seems to fix it
+      raw_program.inspect
+      old_time_zone = Time.zone
+      Time.zone = raw_program.region_name
         
-        # bug where the time zone is not being est properly, calling an 'inspect' seems to fix it
-        raw_program.inspect
-        old_time_zone = Time.zone
-        Time.zone = raw_program.region_name
-        
-        program = Program.create(
-          :title => raw_program.title,
-          :subtitle => raw_program.subtitle,
-          :category => raw_program.category,
-          :description => raw_program.description,
-          :start_datetime => Time.zone.parse(raw_program.start_datetime.strftime("%F %R")).utc,
-          :end_datetime => Time.zone.parse(raw_program.end_datetime.strftime("%F %R")).utc,
-          :region_id => region.id,
-          :channel_id => channel.id,
-          :sport_id => sport.id
-        )
-        Time.zone = old_time_zone
-        return program
+      program = Program.create(
+        :title          => raw_program.title,
+        :subtitle       => raw_program.subtitle,
+        :category       => raw_program.category,
+        :description    => raw_program.description,
+        :start_datetime => Time.zone.parse(raw_program.start_datetime.strftime("%F %R")).utc,
+        :end_datetime   => Time.zone.parse(raw_program.end_datetime.strftime("%F %R")).utc,
+        :region_id      => (region.id unless region.nil?),
+        :channel_id     => (channel.id unless channel.nil?),
+        :sport_id       => (sport.id unless sport.nil?)
+      )
+      Time.zone = old_time_zone
+      return program
       
-      end
+     
 
     end
   

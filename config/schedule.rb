@@ -8,11 +8,11 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 
-every 1.day, :at => '1:00 am' do
+every 1.day, :at => '4:00 am' do
   command "perl /home/yakadmin/get_xmltv_guide_data.pl >> /home/yakadmin/log/cron.log"
 end
 
-every 1.day, :at => '2:00 am' do
+every 1.day, :at => '5:00 am' do
   command "perl /home/yakadmin/load_raw_guide_data.pl >> /home/yakadmin/log/cron.log"
 end
 
