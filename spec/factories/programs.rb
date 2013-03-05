@@ -6,13 +6,19 @@ FactoryGirl.define do
   TEN_PM_YESTERDAY_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 8, 0, 0, '+10')
   ELEVEN_PM_YESTERDAY_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 9, 0, 0, '+10')
   
+  TEN_PM_TOMORROW_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1, 8, 0, 0)
+  ELEVEN_PM_TOMORROW_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1, 9, 0, 0)
+  TEN_PM_YESTERDAY_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 8, 0, 0)
+  ELEVEN_PM_YESTERDAY_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 9, 0, 0)
+  
+  
   factory :program do
     title "Some title"
     subtitle "Some subtitle"
     category "The category"
     description "A show"
-    start_datetime TEN_PM_TOMORROW_PROG
-    end_datetime ELEVEN_PM_TOMORROW_PROG
+    start_datetime TEN_PM_TOMORROW_UTC_PROG
+    end_datetime TEN_PM_TOMORROW_UTC_PROG
     region
     sport
     channel
@@ -25,8 +31,8 @@ FactoryGirl.define do
   end
    
   factory :historic_program, parent: :valid_program do |f|
-    f.start_datetime TEN_PM_YESTERDAY_PROG
-    f.end_datetime ELEVEN_PM_YESTERDAY_PROG
+    f.start_datetime TEN_PM_YESTERDAY_UTC_PROG
+    f.end_datetime ELEVEN_PM_YESTERDAY_UTC_PROG
   end
   
 end

@@ -72,40 +72,40 @@ class Program < ActiveRecord::Base
       title
     end
   end
-   
-  def self.create_from_raw_program(raw_program)
-    sport = Sport.find_for_raw_program(raw_program)
-    region = Region.find_by_name(raw_program.region_name)
-    channel = Channel.find_by_xmltv_id(raw_program.channel_xmltv_id)
+  
+  class << self
+    
+    def create_from_raw_program(raw_program)
+      
+      sport = Sport.find_for_raw_program(raw_program)
+      region = Region.find_by_name(raw_program.region_name)
+      channel = Channel.find_by_xmltv_id(raw_program.channel_xmltv_id)
+          
+      unless sport.nil? || region.nil? || channel.nil?
         
-    unless sport.nil? || region.nil? || channel.nil?
-      #puts "*** START ***"
-      #puts "raw program = #{raw_program}"
-      #puts "raw_program = #{raw_program.inspect}"
-      raw_program.inspect
-      #puts "raw_program start_datetime = #{raw_program.start_datetime}"
-      #puts "old time zone = #{Time.zone}"
-      old_time_zone = Time.zone
-      Time.zone = raw_program.region_name
-      #puts "new time zone = #{Time.zone}"
-      #puts " --- create program ---"
-      program = Program.create(
-        :title => raw_program.title,
-        :subtitle => raw_program.subtitle,
-        :category => raw_program.category,
-        :description => raw_program.description,
-        :start_datetime => Time.zone.parse(raw_program.start_datetime.strftime("%F %R")).utc,
-        :end_datetime => Time.zone.parse(raw_program.end_datetime.strftime("%F %R")).utc,
-        :region_id => region.id,
-        :channel_id => channel.id,
-        :sport_id => sport.id
-      )
-      #puts "program = #{program.inspect}"
-      #puts "current time zone = #{Time.zone}"
-      Time.zone = old_time_zone
-      #puts "reverted time zone = #{Time.zone}"
-      #puts "*** FINISH ***"
+        # bug where the time zone is not being est properly, calling an 'inspect' seems to fix it
+        raw_program.inspect
+        old_time_zone = Time.zone
+        Time.zone = raw_program.region_name
+        
+        program = Program.create(
+          :title => raw_program.title,
+          :subtitle => raw_program.subtitle,
+          :category => raw_program.category,
+          :description => raw_program.description,
+          :start_datetime => Time.zone.parse(raw_program.start_datetime.strftime("%F %R")).utc,
+          :end_datetime => Time.zone.parse(raw_program.end_datetime.strftime("%F %R")).utc,
+          :region_id => region.id,
+          :channel_id => channel.id,
+          :sport_id => sport.id
+        )
+        Time.zone = old_time_zone
+        return program
+      
+      end
+
     end
+  
   end
   
 end

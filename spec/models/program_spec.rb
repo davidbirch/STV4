@@ -64,8 +64,6 @@ describe Program do
     FactoryGirl.build(:program).should validate_uniqueness_of(:channel_id)
   end
   
-  
-  
   describe "should validate the uniqueness of channel for a specified region, start_datetime, and end_datetime" do
     
     before :each do
@@ -108,12 +106,41 @@ describe Program do
       end
     end  
   end
-   
-    
-  #it "can create a program based on a raw_program" do
+     
+  it "can create a program based on a raw_program" do
   #  tennis_raw_program = FactoryGirl.create(:tennis_raw_program)
   #  channel_seven = FactoryGirl.create(:channel_seven)
   #  Program.create_from_raw_program(tennis_raw_program).should be_valid
-  #end
+  end
+
+  describe "can create a program based on a raw program" do
+    
+    before :each do
+      @sport_cricket = FactoryGirl.create(:cricket_sport)
+      @sport_keyword_cricket = FactoryGirl.create(:cricket_sport_keyword, sport_id: @sport_cricket.id)
+      @sport_tennis = FactoryGirl.create(:tennis_sport)
+      @sport_keyword_tennis = FactoryGirl.create(:tennis_sport_keyword, sport_id: @sport_tennis.id)
+      @channel_seven = FactoryGirl.create(:channel_seven)
+      @channel_nine = FactoryGirl.create(:channel_nine)
+      @region_brisbane = FactoryGirl.create(:region_brisbane)
+      @region_melbourne = FactoryGirl.create(:region_melbourne)
+      @raw_program_cricket = FactoryGirl.create(:cricket_raw_program)
+      @program_1 = Program.create_from_raw_program(@raw_program_cricket)
+    end
+    
+    context "where the program already exists" do
+      it "does not create a duplicate program" do
+        Program.create_from_raw_program(@raw_program_cricket).new_record?.should be_true
+      end
+    end
+        
+    context "where the program does not exist" do
+      it "creates a new program" do
+        raw_program_tennis = FactoryGirl.create(:cricket_raw_program, region_name: "Melbourne", channel_xmltv_id: "nine.free.au", category: "Tennis")
+        Program.create_from_raw_program(raw_program_tennis).new_record?.should be_false
+      end 
+    end
+    
+  end
   
 end

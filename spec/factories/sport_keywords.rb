@@ -9,6 +9,10 @@ FactoryGirl.define do
   factory :cricket_sport_keyword, parent: :sport_keyword do |f|
     f.value "Cricket"
   end
+  
+  factory :tennis_sport_keyword, parent: :sport_keyword do |f|
+    f.value "Tennis"
+  end
     
   factory :terminator_black_keyword, parent: :sport_keyword do |f|
     f.rule_type "Black Keyword"
