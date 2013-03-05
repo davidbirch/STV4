@@ -21,12 +21,11 @@ describe Region do
   end
  
   it "is invalid without a unique name" do
-    FactoryGirl.create(:region).should validate_uniqueness_of(:name)
+    FactoryGirl.build(:region).should validate_uniqueness_of(:name)
   end
   
   it "should have many programs" do
-    FactoryGirl.create(:region).should have_many(:programs)
+    FactoryGirl.build(:region).should have_many(:programs)
   end
-  
-  
+    
 end

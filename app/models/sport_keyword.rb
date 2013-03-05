@@ -16,6 +16,8 @@ class SportKeyword < ActiveRecord::Base
   validates :value, :presence => true
   validates :rule_type, :presence => true
   
+  validates :value, :uniqueness => true
+  
   belongs_to :sport
   
   default_scope :select => "*, LENGTH(value) as value_length"

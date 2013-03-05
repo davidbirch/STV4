@@ -11,13 +11,18 @@
 class Sport < ActiveRecord::Base
   
   validates :name, :presence => true
+  validates :name, :uniqueness => true
   
   has_many :programs
   has_many :sport_keywords
   
-  def self.find_for_raw_program(raw_program)
-    sport_keyword = SportKeyword.check_raw_program(raw_program)
-    Sport.find_by_name(sport_keyword)
+  class << self
+    
+    def find_for_raw_program(raw_program)
+      sport_keyword = SportKeyword.check_raw_program(raw_program)
+      Sport.find_by_name(sport_keyword)
+    end
+  
   end
    
 end

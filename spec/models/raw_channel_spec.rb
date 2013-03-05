@@ -26,11 +26,11 @@ describe RawChannel do
   end
   
   it "is invalid without a unique channel name" do
-    FactoryGirl.create(:raw_channel).should validate_uniqueness_of(:channel_name)
+    FactoryGirl.build(:raw_channel).should validate_uniqueness_of(:channel_name)
   end
   
   it "is invalid without a unique xmltv_id" do
-    FactoryGirl.create(:raw_channel).should validate_uniqueness_of(:xmltv_id)
+    FactoryGirl.build(:raw_channel).should validate_uniqueness_of(:xmltv_id)
   end
   
 end
