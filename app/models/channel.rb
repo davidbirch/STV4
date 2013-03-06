@@ -21,9 +21,7 @@ class Channel < ActiveRecord::Base
   
   validates_uniqueness_of :name
   validates_uniqueness_of :xmltv_id
-  
-  
-  
+    
   class << self
     
     def create_from_raw_channel(raw_channel)

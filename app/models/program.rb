@@ -29,8 +29,7 @@ class Program < ActiveRecord::Base
   validates_presence_of :sport_id
   validates_presence_of :channel_id
   
-  validates_uniqueness_of :channel_id , :scope => [:region_id, :start_datetime, :end_datetime]
-  
+  validates_uniqueness_of :channel_id , :scope => [:region_id, :title, :start_datetime, :end_datetime]
   
   
   scope :historic, lambda {
@@ -40,15 +39,22 @@ class Program < ActiveRecord::Base
   scope :current, lambda {
       where("end_datetime >= ?", Time.now)
   }
+  
   scope :chronological, order("start_datetime ASC, end_datetime ASC")
+  
   scope :by_title, order("title DESC, subtitle DESC")
+  scope :by_subtitle, order("subtitle DESC, title DESC")
+    
+  scope :sorted_for_tv_guide, includes(:sport, :channel).chronological.order("channels.short_name ASC, channels.name ASC").by_subtitle
   
-  scope :format_and_sort_for_html, includes(:sport, :channel).order("start_datetime ASC, end_datetime ASC, channels.short_name ASC, channels.name ASC, subtitle DESC, title DESC")
-  
-  def local_time_zone
-    Time.zone
-  end
-  
+   def full_title
+    if subtitle != ""
+      title + " (" + subtitle + ")"
+    else
+      title
+    end
+   end
+   
   def local_start_date
     start_datetime.in_time_zone(region.name).strftime("%a, %d %b %Y")
   end
@@ -64,15 +70,7 @@ class Program < ActiveRecord::Base
   def local_end_time
     end_datetime.in_time_zone(region.name).strftime("%R")
   end
-  
-  def full_title
-    if subtitle != ""
-      title + " (" + subtitle + ")"
-    else
-      title
-    end
-  end
-  
+    
   class << self
     
     def create_from_raw_program(raw_program)
@@ -81,8 +79,8 @@ class Program < ActiveRecord::Base
       region = Region.find_by_name(raw_program.region_name)
       channel = Channel.find_by_xmltv_id(raw_program.channel_xmltv_id)
           
-             
-      # bug where the time zone is not being est properly, calling an 'inspect' seems to fix it
+      # bug where the time zone is not being set properly, calling an 'inspect' seems to fix it
+      # may cause performance issues - however this is only uesd in the converter
       raw_program.inspect
       old_time_zone = Time.zone
       Time.zone = raw_program.region_name
@@ -100,9 +98,7 @@ class Program < ActiveRecord::Base
       )
       Time.zone = old_time_zone
       return program
-      
-     
-
+    
     end
   
   end
