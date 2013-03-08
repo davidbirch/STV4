@@ -35,10 +35,10 @@ STV4::Application.routes.draw do
   # special routes - these need to be last // catch all
   
   # special routes for /region
-  match ':region_name' => 'guide#show'
+  match ':region_name' => 'guide#show', :constraints => {:format => 'html'}
     
   # special route for /region/sport
-  match ':region_name/:sport_name' => 'guide#show'
+  match ':region_name/:sport_name' => 'guide#show', :constraints => {:format => 'html'}
   
   # -------------------------------------------------------
   # default route to the region index page

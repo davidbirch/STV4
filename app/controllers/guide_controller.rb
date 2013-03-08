@@ -6,9 +6,9 @@ class GuideController < ApplicationController
     @meta_keywords = page_meta_keywords
     @meta_description = page_meta_description
     @news_entries = page_news_entries
-        
+      
   end
-
+  
   # GET /[region]
   # GET /[region]/[sport]
   def show
@@ -29,7 +29,7 @@ class GuideController < ApplicationController
     @meta_keywords = page_meta_keywords
     @meta_description = page_meta_description
     @news_entries = page_news_entries
-          
+     
   end
   
   
