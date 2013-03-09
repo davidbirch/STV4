@@ -60,14 +60,15 @@ describe Program do
     FactoryGirl.build(:program).should belong_to(:sport)
   end
   
-  it "is invalid without a unique channel/region/start/end" do
+  it "is invalid without a unique channel/region/sport/start/end" do
     FactoryGirl.build(:program).should validate_uniqueness_of(:channel_id)
   end
   
-  describe "should validate the uniqueness of channel for a specified region, title, start_datetime, and end_datetime" do
+  describe "should validate the uniqueness of channel for a specified region, title, sport, start_datetime, and end_datetime" do
     
     before :each do
       @sport_cricket = FactoryGirl.create(:cricket_sport)
+      @sport_tennis = FactoryGirl.create(:tennis_sport)
       @channel_nine = FactoryGirl.create(:channel_nine)
       @channel_seven = FactoryGirl.create(:channel_seven)
       @region_melbourne = FactoryGirl.create(:region_melbourne)
@@ -88,6 +89,12 @@ describe Program do
       end
     end
     
+    context "where the sport is different" do
+      it "creates a program" do
+        FactoryGirl.build(:valid_program, channel_id: @channel_nine.id, region_id: @region_melbourne.id, sport_id: @sport_tennis.id).valid?.should be_true
+      end
+    end
+        
     context "where the region is different" do
       it "creates a program" do
         FactoryGirl.build(:valid_program, channel_id: @channel_nine.id, region_id: @region_brisbane.id, sport_id: @sport_cricket.id).valid?.should be_true

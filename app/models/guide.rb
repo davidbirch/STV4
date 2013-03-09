@@ -1,6 +1,6 @@
 class Guide
   
-  attr_accessor :region, :sport
+  attr_accessor :region, :sport, :search_string
     
   def initialize (region,sport,search_string)
     @region = region

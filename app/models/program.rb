@@ -29,7 +29,7 @@ class Program < ActiveRecord::Base
   validates_presence_of :sport_id
   validates_presence_of :channel_id
   
-  validates_uniqueness_of :channel_id , :scope => [:region_id, :title, :start_datetime, :end_datetime]
+  validates_uniqueness_of :channel_id , :scope => [:region_id, :title, :sport_id, :start_datetime, :end_datetime]
   
   
   scope :historic, lambda {
