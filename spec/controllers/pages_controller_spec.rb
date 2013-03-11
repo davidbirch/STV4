@@ -107,10 +107,33 @@ describe PagesController do
   
   end
   
-  describe "GET login" do
-        
-    it "redirects to the dashboard view"
+  describe "GET login unauthenticated" do
+       
+    before :each do
+      get :login
+    end
     
+    it "should return a 401 with no basic auth" do
+      response.status.should == 401
+    end
+  
   end
+
+  describe "GET login authenticated" do
+    
+    before :each do
+      http_login
+      get :login
+    end
+    
+    it 'should return a 302 redirect with valid basic auth' do
+      response.status.should == 302
+    end
+  
+    it 'should redirect to the dashboard' do
+      response.should redirect_to "/Dashboard"
+    end
+  end
+   
 
 end
