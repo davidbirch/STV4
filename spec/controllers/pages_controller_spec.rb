@@ -104,7 +104,27 @@ describe PagesController do
     it 'should return a 200 with valid basic auth' do
       response.status.should == 200
     end
-  
+    
+    it "assigns a page @title" do
+      assigns(:title).should_not be_nil
+    end
+    
+    it "assigns a page @meta_keywords" do
+      assigns(:meta_keywords).should_not be_nil
+    end
+   
+    it "assigns a page @meta_description" do
+      assigns(:meta_description).should_not be_nil
+    end 
+    
+    it "assigns a page @breadcrumb" do
+      assigns(:breadcrumb).should_not be_nil
+    end 
+    
+    it "renders the :privacy view" do
+      response.should render_template :dashboard
+    end  
+    
   end
   
   describe "GET login unauthenticated" do

@@ -5,7 +5,8 @@ STV4::Application.routes.draw do
   # -------------------------------------------------------
   # special route for all subdomains
   constraints (Subdomain) do
-    match '/*every'      => 'pages#mobile_under_construction'
+    match '/'        => 'pages#mobile_under_construction'
+    match '/*every'  => 'pages#mobile_under_construction'
   end
     
   # -------------------------------------------------------
