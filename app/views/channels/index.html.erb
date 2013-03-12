@@ -18,7 +18,7 @@
         <% if channel.black_flag %>
           <%= link_to "<i class=\"icon-minus-sign\"></i>".html_safe, toggle_black_flag_channel_path(channel), :method => :put %>
         <% else %>
-          <%= link_to "<i class=\"icon-circle\"></i>".html_safe, toggle_black_flag_channel_path(channel), :method => :put %>
+          <%= link_to "<i class=\"icon-circle-blank\"></i>".html_safe, toggle_black_flag_channel_path(channel), :method => :put %>
         <% end %>
         </td>
         <td><%= link_to channel.name, channel %></td>
