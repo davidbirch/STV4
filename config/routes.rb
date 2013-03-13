@@ -18,26 +18,31 @@ STV4::Application.routes.draw do
   match 'Contact'  => 'pages#contact'
   
   # -------------------------------------------------------
-  # specific resource routes
+  # specific secured resource routes
   resources :programs
   resources :regions
   resources :sports
   resources :sport_keywords
-   
+     
   resources :channels do
     member do
       put "toggle_black_flag"
     end
   end
+  
     
   # -------------------------------------------------------
   # special routes - these need to be last // catch all
   
-  # special routes for /region
-  match ':region_name' => 'guide#show', :constraints => {:format => 'html'}
-    
-  # special route for /region/sport
-  match ':region_name/:sport_name' => 'guide#show', :constraints => {:format => 'html'}
+  #scope :constraints => { :protocol => 'http' } do  
+
+    # special routes for /region
+    match ':region_name' => 'guide#show', :constraints => {:format => 'html'}
+      
+    # special route for /region/sport
+    match ':region_name/:sport_name' => 'guide#show', :constraints => {:format => 'html'}
+  
+  #end
   
   # -------------------------------------------------------
   # default route to the region index page
