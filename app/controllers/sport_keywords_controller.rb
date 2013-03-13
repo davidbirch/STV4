@@ -1,5 +1,6 @@
 class SportKeywordsController < ApplicationController
   
+  force_ssl
   before_filter :authenticate
     
   # GET /sport_keywords

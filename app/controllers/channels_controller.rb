@@ -1,5 +1,6 @@
 class ChannelsController < ApplicationController
   
+  force_ssl
   before_filter :authenticate  
   
   # GET /channels

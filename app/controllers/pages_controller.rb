@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   
+  force_ssl :except => [:about, :privacy, :contact, :mobile_under_construction]
   before_filter :authenticate, :except => [:about, :privacy, :contact, :mobile_under_construction]
   
   def mobile_under_construction

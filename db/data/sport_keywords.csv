@@ -158,7 +158,6 @@ White Keyword,Danone Nations Cup,Soccer,10
 White Keyword,European Qualifier,Soccer,10
 White Keyword,Formula Ford,Motor Sports,10
 White Keyword,Four Nations,Rugby League,10
-White Keyword,French Top 14,Rugby Union,10
 White Keyword,La Giostra dei gol,Soccer,10
 White Keyword,Ladies European Tour,Golf,10
 White Keyword,Australian GT,Motor Sports,10
@@ -223,7 +222,7 @@ White Keyword,Lawn Bowls,Lawn Bowls,20
 White Keyword,Motor Sports,Motor Sports,20
 White Keyword,Netball,Netball,20
 White Keyword,Poker,Poker,20
-White Keyword,Racing,Racing,20
+White Keyword,Racing,Racing,5
 White Keyword,Rodeo,Rodeo,20
 White Keyword,Rugby League,Rugby League,20
 White Keyword,Rugby Union,Rugby Union,20
@@ -266,10 +265,53 @@ White Keyword,Ultimate Fighter,Fighting,10
 White Keyword,Euro League,Basketball,10
 White Keyword,Dallas Cowboys,American Football,10
 White Keyword,League One,Soccer,10
-White Keyword,Moto,Motor Sports,10
 White Keyword,Football Asia,Soccer,10
 White Keyword,Iron Woman,Triathlon,10
 White Keyword,Copa,Soccer,10
 White Keyword,Scottish Div 3,Soccer,10
 White Keyword,Fishin'Trip,Fishing,10
 White Keyword,Test,Cricket,5
+White Keyword,Mana Mamau,Boxing,10
+White Keyword,Raceway,Motor Sports,10
+White Keyword,Supercross,Motor Sports,10
+White Keyword,Mt Panorama,Motor Sports,10
+White Keyword,Bathurst 12 Hour,Motor Sports,10
+White Keyword,Lingerie Football League,American Football,10
+White Keyword,Dirt Series,Motor Sports,10
+White Keyword,The Dirt,Motor Sports,10
+White Keyword,College Gameday,Basketball,10
+White Keyword,Rabo Pro 12,Rugby Union,10
+White Keyword,Planet Speed,Motor Sports,10
+White Keyword,Capital One Cup,Soccer,10
+White Keyword,GP2,Motor Sports,10
+Black Keyword,Family Guy,"",
+Black Keyword,Double Trouble (The First Test),"",
+Black Keyword,Rin Tin Tin - The Test,"",
+White Keyword,WGC,Golf,10
+White Keyword,Tirreno-Adriatico,Cycling,10
+White Keyword,Dunlop Series,Motor Sports,10
+White Keyword,NSW Cup,Rugby League,10
+White Keyword,Little League,Baseball,10
+White Keyword,Margaret River 7's,Rugby Union,10
+White Keyword,Holden Cup,Rugby League,10
+White Keyword,Chili Bowl,Motor Sports,10
+White Keyword,LV= Cup,Rugby Union,10
+White Keyword,Nike Lowers Pro,Surfing,10
+White Keyword,Quiksilver Pro,Surfing,10
+White Keyword,Paris-Nice,Cycling,10
+White Keyword,Dallas Cowboy,American Football,10
+White Keyword,West Coast Conference,Basketball,10
+White Keyword,Nine's Sunday Football,Rugby League,10
+White Keyword,Koori Knockout,Rugby League,10
+White Keyword,Top 14,Rugby Union,10
+White Keyword,Federation Cup,Tennis,10
+Black Keyword,Double Trouble,"",
+Black Keyword,Pat and Stan,"",
+Black Keyword,My Family,"",
+Black Keyword,Big Bang Theory,"",
+Black Keyword,Looney Tunes,"",
+White Keyword,Toyota Racing,Motor Sports,10
+White Keyword,Drag Racing,Motor Sports,10
+White Keyword,Road Racing,Motor Sports,10
+White Keyword,Toyota Racing,Motor Sports,10
+White Keyword,Motor Mate,Motor Sports,10

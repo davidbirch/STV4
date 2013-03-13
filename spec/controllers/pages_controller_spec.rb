@@ -82,9 +82,10 @@ describe PagesController do
     end  
   end
 
-  describe "GET dashboard unauthenticated" do
+  describe "GET dashboard unauthenticated at https" do
     
     before :each do
+      request.env['HTTPS'] = 'on'
       get :dashboard
     end
     
@@ -93,10 +94,36 @@ describe PagesController do
     end
   
   end
-  
-  describe "GET dashboard authenticated" do
+
+  describe "GET dashboard unauthenticated at http" do
     
     before :each do
+      get :dashboard
+    end
+    
+    it "should return a 301 redirect to the https site" do
+      response.status.should == 301
+    end
+  
+  end
+  
+  describe "GET dashboard authenticated at http" do
+    
+    before :each do
+      http_login
+      get :dashboard
+    end
+    
+    it "should return a 301 redirect to the https site" do
+      response.status.should == 301
+    end
+  
+  end
+  
+  describe "GET dashboard authenticated at https" do
+    
+    before :each do
+      request.env['HTTPS'] = 'on'
       http_login
       get :dashboard
     end
@@ -130,6 +157,7 @@ describe PagesController do
   describe "GET login unauthenticated" do
        
     before :each do
+      request.env['HTTPS'] = 'on'
       get :login
     end
     
@@ -142,7 +170,8 @@ describe PagesController do
   describe "GET login authenticated" do
     
     before :each do
-      http_login
+      request.env['HTTPS'] = 'on'
+      http_login      
       get :login
     end
     
