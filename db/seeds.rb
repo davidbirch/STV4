@@ -22,6 +22,16 @@ CSV.open("db/data/sports.csv", "r").each do |row|
   )
 end
 
+# import the data for channels
+CSV.open("db/data/channels.csv", "r").each do |row|
+  Channel.find_or_create_by_name(
+    :name => row[0],
+    :short_name => row[1],
+    :xmltv_id => row[2],
+    :black_flag => row[3]
+  )
+end
+
 # import the data for sports
 CSV.open("db/data/sport_keywords.csv", "r").each do |row|
   SportKeyword.find_or_create_by_value(
