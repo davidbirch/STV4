@@ -45,7 +45,7 @@ class Program < ActiveRecord::Base
   scope :by_title, order("title DESC, subtitle DESC")
   scope :by_subtitle, order("subtitle DESC, title DESC")
     
-  scope :sorted_for_tv_guide, includes(:sport, :channel).chronological.order("channels.short_name ASC, channels.name ASC").by_subtitle
+  scope :sorted_for_tv_guide, includes(:sport, :channel, :region).chronological.order("channels.short_name ASC, channels.name ASC").by_subtitle
   
    def full_title
     if subtitle != ""
