@@ -13,8 +13,8 @@
 <% end %>
 <% if last_program.nil? || program.local_start_date != last_program.local_start_date %>
   <% if (program_count > 20 && day_count == 0) || day_count == 1 || (day_count == 2 && program_count <= 20)%>
-  <% if !logged_in? %>
   <div class="advertisment_content">
+  <% if !logged_in? && Rails.env.production? %>
     <script type="text/javascript"><!--
       google_ad_client = "ca-pub-4406472656891849";
       /* STV Banner */
@@ -26,8 +26,10 @@
     <script type="text/javascript"
       src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
-  </div>
+  <% else %>
+    <img src="http://placehold.it/728x90" alt="placeholder 728x90">
   <% end %>
+  </div>
   <% end %>  
   <table class="table table-condensed table-hover programs">
     <colgroup>

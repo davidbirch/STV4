@@ -9,5 +9,8 @@ class CreatePrograms < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :programs, :region_id
+    add_index :programs, :sport_id
   end
 end

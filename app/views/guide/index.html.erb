@@ -2,8 +2,8 @@
 <% @regions.each do |region| %>
     <%= link_to region.name, "/"+region.name+"/", :class => 'btn btn-large btn-block btn-primary' %>
 <% end %>
-<% if !logged_in? %>
   <div class="advertisment_content">
+    <% if !logged_in? && Rails.env.production? %>
     <script type="text/javascript"><!--
       google_ad_client = "ca-pub-4406472656891849";
       /* STV Banner */
@@ -15,6 +15,9 @@
     <script type="text/javascript"
       src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
+    <% else %>
+    <img src="http://placehold.it/728x90" alt="placeholder 728x90">
+    <% end %>
   </div>
-<% end %>
+
 

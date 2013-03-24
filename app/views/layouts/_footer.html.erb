@@ -13,7 +13,7 @@
     </div>
   </div>
   
-<% if !logged_in? %>
+<% if !logged_in? && Rails.env.production? %>
   <!-- Google Analytics -->
   <script>
     var _gaq=[['_setAccount','UA-8415542-1'],['_trackPageview']];

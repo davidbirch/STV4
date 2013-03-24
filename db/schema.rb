@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(:version => 20130214120559) do
     t.datetime "end_datetime"
   end
 
+  add_index "programs", ["region_id"], :name => "index_programs_on_region_id"
+  add_index "programs", ["sport_id"], :name => "index_programs_on_sport_id"
+
   create_table "raw_channels", :force => true do |t|
     t.string   "xmltv_id"
     t.string   "channel_name"
