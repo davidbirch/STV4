@@ -57,7 +57,7 @@
         <td class="program"><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%= program.local_start_time %> to <%= program.local_end_time %>)
 <% day_count = day_count + 1 %>
 <% else %>
-<% if program.sport.name == last_program.sport.name && program.channel.short_name == last_program.channel.short_name && (program.start_datetime == last_program.start_datetime || program.end_datetime == last_program.end_datetime) %>
+<% if program.sport.name == last_program.sport.name && program.channel.short_name == last_program.channel.short_name && program.start_datetime == last_program.start_datetime && program.end_datetime == last_program.end_datetime %>
        <% if program.channel.name != last_program.channel.name %><br><% if logged_in? %><%= link_to program.channel.name, program.channel %><% else %><%= program.channel.name %><% end %> (<%=program.local_start_time%> to <%=program.local_end_time%>)<% end %>          
 <% else %>
         </td>

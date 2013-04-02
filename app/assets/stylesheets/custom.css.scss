@@ -7,67 +7,46 @@ body {
     background: #39414a url(/assets/stv-header.png) repeat-x 50% 0;
     padding-top: 0px;
 }
-
-.row {
-    margin-right: -20px;
-}
-
 .main{
     background: white;
 }
 
-[class*="span"] {
-    margin-left: 0px;
-}
-
-.stv-form{
-    margin-bottom: 18px;
-}
-
-.stv-form-buttons{
-    padding-left: 160px;
-}
-
-
 /*------------------------------------------------------------------------ 
   Bootstrap customisations and tweaks
   ------------------------------------------------------------------------*/
-
+.container{
+    width: 970px;
+}
+.row{
+    margin-left: 0px;
+}
+[class*="span"] {
+    margin-left: 0px;
+}
+.centre{
+    text-align:center;
+}
 .alert, .btn{
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
     width: auto;
 }
-
-.centre{
-    text-align:center;
-}
-
 .advertisment{
     margin-bottom: 0px;
 }
-
-.advertisment_content{
-    margin-left: 10px;
-}
-
 .well, pre, .breadcrumb{
     margin: 10px;
 }
-
 .breadcrumb{
     margin-right: 20px;
 }
-
 table.admin{
     width: 728px;
 }
-
 #search{
     width: 120px;
 }
-
 
 /*------------------------------------------------------------------------ 
   Header and Footer styles
@@ -75,12 +54,9 @@ table.admin{
 header {
     height: 156px;
     color: #fff;
-}
-
-header div{
     background-image: url(/assets/apple-touch-icon-72x72.png);
     background-repeat: no-repeat;
-    background-position: 8% 50%;
+    background-position: 8% 35%;
 }
 header h1 {
     line-height: 80px;
@@ -112,28 +88,6 @@ header a:hover{
     background-color: transparent;
 }
 
-.footer_nav  {
-    position: relative;
-    float: left;
-    width: 164px;
-    margin: 20px 10px;
-}
-
-.footer h4 {
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    font-weight: bold;
-    border-bottom: thin solid #E1E1E1;
-}
-
-.footer li{
-    list-style: none;
-}
-
-.footer img{
-    margin-bottom: 2px;
-}
-
 .upper_footer{
     border-top: 1px solid #E0E0E0;
     border-bottom: 1px solid #E0E0E0;
@@ -145,32 +99,46 @@ header a:hover{
     min-height: 20px;
 }
 
+footer ul{
+    position: relative;
+    float: left;
+    width: 164px;
+    margin: 20px 10px;
+}
+
+footer h4{
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-bottom: thin solid #E1E1E1;
+}
+
+footer li{
+    list-style: none;
+}
+
+footer img{
+    margin-bottom: 2px;
+}
 
 /*------------------------------------------------------------------------ 
   The Left
   ------------------------------------------------------------------------*/
-
 [class*="left_"] {
     border-bottom: 1px solid #E0E0E0;
     padding-top: 10px;
 }
-
 .left_content{
-    padding-top: 10px;
-    width: 220px;
     border-right: 1px solid #E0E0E0;
     border-bottom: none;
 }
-
 .left_content ul, .left_content img, .left_content form{
     margin-left: 10px;
     margin-bottom: 10px;
 }
-
 .left_content li{
     list-style: none;
 }
-
 .left_news_feed li{
     padding-bottom: 10px;
     padding-right: 5px;
@@ -179,16 +147,13 @@ header a:hover{
 /*------------------------------------------------------------------------ 
   The Right
   ------------------------------------------------------------------------*/
-
 .right_content{
     padding-top: 10px;
-    width: 758px;
+    width: 748px;
 }
-
 .right_content p, .right_content h2, .right_content h3, .right_content img, .right_content table{
     margin-left: 10px;
 }
-
 .right_content img{
     margin-bottom: 10px;
 }
@@ -196,7 +161,6 @@ header a:hover{
 /*------------------------------------------------------------------------ 
   The Table
   ------------------------------------------------------------------------*/
-
 table.programs{
 	width: 728px;
 	border: 1px #000000 solid;
@@ -224,9 +188,8 @@ col.col_channel{
     }
 
 /*------------------------------------------------------------------------ 
-  The Table
+  Mobile
   ------------------------------------------------------------------------*/
-
 .mobile{
     color: #fff;
     margin-top: 10px;

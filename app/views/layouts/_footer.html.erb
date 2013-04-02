@@ -1,26 +1,4 @@
-<footer>
-  <div class="row upper_footer">
-    <div class="span12">
-      <%= render "shared/footer_page_list" %>
-      <%= render "shared/footer_region_list" %>
-    </div>
-  </div>
-  <div class="row lower_footer">
-    <div class="span12">
-      <% if logged_in? %>
-        <%= debug params %>
-      <% end %> 
-    </div>
-  </div>
-  
-<% if !logged_in? && Rails.env.production? %>
-  <!-- Google Analytics -->
-  <script>
-    var _gaq=[['_setAccount','UA-8415542-1'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script> 
-  <% end %>
-  
-</footer>
+<%= render "layouts/footer_page_list" %>
+<%= render "layouts/footer_region_list" %>
+
+
