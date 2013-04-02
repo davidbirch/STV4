@@ -3,6 +3,7 @@ class GuideController < ApplicationController
   # GET /
   def index
     @title = page_title
+    @region_touch_icon_extension = page_region_touch_icon_extension
     @meta_keywords = page_meta_keywords
     @meta_description = page_meta_description
     @news_entries = page_news_entries
@@ -26,13 +27,12 @@ class GuideController < ApplicationController
     
     
     @title = page_title
+    @region_touch_icon_extension = page_region_touch_icon_extension
     @meta_keywords = page_meta_keywords
     @meta_description = page_meta_description
     @news_entries = page_news_entries
      
   end
-  
-  
   
   private
   
@@ -54,6 +54,14 @@ class GuideController < ApplicationController
     
     def page_meta_keywords
       "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+    end
+    
+    def page_region_touch_icon_extension
+      if @region.nil?
+        ""
+      else
+        "-"+@region.name.downcase
+      end
     end
     
     def page_meta_description  
