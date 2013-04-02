@@ -53,7 +53,7 @@ class GuideController < ApplicationController
     end
     
     def page_meta_keywords
-      "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
+      "tv guide, sport, television, coverage, tonight, live, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
     end
     
     def page_region_touch_icon_extension
@@ -93,7 +93,7 @@ class GuideController < ApplicationController
         temp_region = @region.name+", Australia"
       end
        
-      "Your source for #{temp_sport.downcase} on television in #{temp_region}.  Find out when #{temp_sport.downcase} is on television.  Watch live #{temp_sport.downcase} on Free-to-air or Pay TV."   
+      "Your tv guide for #{temp_sport.downcase} in #{temp_region}.  Coverage of all #{temp_sport.downcase} on television.  Watch live #{temp_sport.downcase} on Free-to-air or Pay TV."   
     end
   
     def page_news_entries
