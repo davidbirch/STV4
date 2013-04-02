@@ -32,9 +32,6 @@ body {
     margin-bottom: 10px;
     width: auto;
 }
-.advertisment{
-    margin-bottom: 0px;
-}
 .well, pre, .breadcrumb{
     margin: 10px;
 }
@@ -44,6 +41,11 @@ table.admin{
 #search{
     width: 120px;
 }
+.right_content .advertisment_content{
+    margin-bottom: 10px;
+}
+
+
 
 /*------------------------------------------------------------------------ 
   Header and Footer styles
