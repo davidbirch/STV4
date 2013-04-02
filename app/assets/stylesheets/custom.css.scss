@@ -14,7 +14,7 @@ body {
 /*------------------------------------------------------------------------ 
   Bootstrap customisations and tweaks
   ------------------------------------------------------------------------*/
-.container{
+.container, .span12{
     width: 970px;
 }
 .row{
@@ -37,9 +37,6 @@ body {
 }
 .well, pre, .breadcrumb{
     margin: 10px;
-}
-.breadcrumb{
-    margin-right: 20px;
 }
 table.admin{
     width: 728px;
