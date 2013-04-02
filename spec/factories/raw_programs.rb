@@ -1,10 +1,10 @@
 FactoryGirl.define do
   
-  TEN_PM_TOMORROW_RAW = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 2, 8, 0, 0, '+10')
-  ELEVEN_PM_TOMORROW_RAW = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 2, 9, 0, 0, '+10')
-  TEN_PM_YESTERDAY_RAW = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 2, 8, 0, 0, '+10')
-  ELEVEN_PM_YESTERDAY_RAW = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 2, 9, 0, 0, '+10')
-  
+  TEN_PM_TOMORROW_RAW = DateTime.new((DateTime.now + 2).year, (DateTime.now + 2).month, (DateTime.now + 2).day, 8, 0, 0, '+10')
+  ELEVEN_PM_TOMORROW_RAW = DateTime.new((DateTime.now + 2).year, (DateTime.now + 2).month, (DateTime.now + 2).day, 9, 0, 0, '+10')
+  TEN_PM_YESTERDAY_RAW = DateTime.new((DateTime.now - 2).year, (DateTime.now - 2).month, (DateTime.now - 2).day, 8, 0, 0, '+10')
+  ELEVEN_PM_YESTERDAY_RAW = DateTime.new((DateTime.now - 2).year, (DateTime.now - 2).month, (DateTime.now - 2).day, 9, 0, 0, '+10')
+      
   factory :raw_program do
     title "Some title"
     subtitle "Some subtitle"

@@ -1,15 +1,15 @@
 FactoryGirl.define do
   
   # already defined in raw_programs.rb  
-  TEN_PM_TOMORROW_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1, 8, 0, 0, '+10')
-  ELEVEN_PM_TOMORROW_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1, 9, 0, 0, '+10')
-  TEN_PM_YESTERDAY_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 8, 0, 0, '+10')
-  ELEVEN_PM_YESTERDAY_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 9, 0, 0, '+10')
+  TEN_PM_TOMORROW_PROG = DateTime.new((DateTime.now + 1).year, (DateTime.now + 1).month, (DateTime.now + 1).day, 8, 0, 0, '+10')
+  ELEVEN_PM_TOMORROW_PROG = DateTime.new((DateTime.now + 1).year, (DateTime.now + 1).month, (DateTime.now + 1).day, 9, 0, 0, '+10')
+  TEN_PM_YESTERDAY_PROG = DateTime.new((DateTime.now - 1).year, (DateTime.now - 1).month, (DateTime.now - 1).day, 8, 0, 0, '+10')
+  ELEVEN_PM_YESTERDAY_PROG = DateTime.new((DateTime.now - 1).year, (DateTime.now - 1).month, (DateTime.now - 1).day, 9, 0, 0, '+10')
   
-  TEN_PM_TOMORROW_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1, 8, 0, 0)
-  ELEVEN_PM_TOMORROW_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1, 9, 0, 0)
-  TEN_PM_YESTERDAY_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 8, 0, 0)
-  ELEVEN_PM_YESTERDAY_UTC_PROG = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day - 1, 9, 0, 0)
+  TEN_PM_TOMORROW_UTC_PROG = DateTime.new((DateTime.now + 1).year, (DateTime.now + 1).month, (DateTime.now + 1).day, 8, 0, 0)
+  ELEVEN_PM_TOMORROW_UTC_PROG = DateTime.new((DateTime.now + 1).year, (DateTime.now + 1).month, (DateTime.now + 1).day, 9, 0, 0)
+  TEN_PM_YESTERDAY_UTC_PROG = DateTime.new((DateTime.now - 1).year, (DateTime.now - 1).month, (DateTime.now - 1).day, 8, 0, 0)
+  ELEVEN_PM_YESTERDAY_UTC_PROG = DateTime.new((DateTime.now - 1).year, (DateTime.now - 1).month, (DateTime.now - 1).day, 9, 0, 0)
   
   
   factory :program do
