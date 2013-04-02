@@ -17,15 +17,15 @@ gem 'whenever', :require => false
 gem 'feedzirra', '~> 0.2.0.rc2'
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
+  gem "rspec-rails", "~> 2.13.0"
+  gem "shoulda-matchers", "~> 1.5.6"
+  gem "factory_girl_rails", "~> 4.0"
   gem 'hirb'
   gem 'annotate'
 end
 
 group :test do
-  gem 'capybara'
+  gem "capybara", "~> 2.0.3"
 end
 
 gem "therubyracer"
