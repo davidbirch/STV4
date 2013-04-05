@@ -6,6 +6,10 @@ FactoryGirl.define do
     sport_id 1
   end
   
+  factory :invalid_sport_keyword, parent: :sport_keyword do |f|
+    f.value ""
+  end
+  
   factory :cricket_sport_keyword, parent: :sport_keyword do |f|
     f.value "Cricket"
   end

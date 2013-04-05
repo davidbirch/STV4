@@ -29,6 +29,10 @@ FactoryGirl.define do
     f.subtitle "In September"
     f.category "Sport/AFL"
   end
+  
+  factory :invalid_program, parent: :program do |f|
+    f.title ""
+  end
    
   factory :historic_program, parent: :valid_program do |f|
     f.start_datetime TEN_PM_YESTERDAY_UTC_PROG

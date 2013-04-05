@@ -4,6 +4,10 @@ FactoryGirl.define do
     name "Test Region"
   end
   
+  factory :invalid_region, parent: :region do |f|
+    f.name ""
+  end
+  
   factory :region_brisbane, parent: :region do |f|
     f.name "Brisbane"
   end

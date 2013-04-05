@@ -5,17 +5,16 @@ STV4::Application.routes.draw do
   # -------------------------------------------------------
   # special route for all subdomains
   constraints (Subdomain) do
-    match '/'        => 'pages#mobile_under_construction'
-    match '/*every'  => 'pages#mobile_under_construction'
+    get '/'        => 'pages#mobile_under_construction'
+    get '/*every'  => 'pages#mobile_under_construction'
   end
     
   # -------------------------------------------------------
   # static pages of supporting information
-  match 'About'    => 'pages#about'
-  match 'Login'    => 'pages#login'
-  match 'Dashboard'=> 'pages#dashboard'
-  match 'Privacy'  => 'pages#privacy'
-  match 'Contact'  => 'pages#contact'
+  get 'Login'    => 'pages#login'
+  get 'Dashboard'=> 'pages#dashboard'
+  get 'Privacy'  => 'pages#privacy'
+  get 'Contact'  => 'pages#contact'
   
   # -------------------------------------------------------
   # specific secured resource routes
@@ -37,10 +36,10 @@ STV4::Application.routes.draw do
   #scope :constraints => { :protocol => 'http' } do  
 
     # special routes for /region
-    match ':region_name' => 'guide#show', :constraints => {:format => 'html'}
+    get ':region_name' => 'guide#show', :constraints => {:formats => [:html]}
       
     # special route for /region/sport
-    match ':region_name/:sport_name' => 'guide#show', :constraints => {:format => 'html'}
+    get ':region_name/:sport_name' => 'guide#show', :constraints => {:formats => [:html]}
   
   #end
   

@@ -4,6 +4,10 @@ FactoryGirl.define do
     name "test sport"
   end
   
+  factory :invalid_sport, parent: :sport do |f|
+    f.name ""
+  end
+    
   factory :cricket_sport, parent: :sport do |f|
     f.name "Cricket"
   end

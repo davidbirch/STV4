@@ -5,6 +5,10 @@ FactoryGirl.define do
     short_name "Test"
     xmltv_id "testchannel.free.au"
   end
+  
+  factory :invalid_channel, parent: :channel do |f|
+    f.name ""
+  end
     
   factory :channel_seven, parent: :channel do |f|
     f.name "Seven"

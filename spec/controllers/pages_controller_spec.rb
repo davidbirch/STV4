@@ -4,7 +4,7 @@ describe PagesController do
   
   include AuthHelper
 
-  describe "GET contact" do
+  describe "GET #contact" do
     before :each do
       get :contact
     end
@@ -30,7 +30,7 @@ describe PagesController do
     end  
   end
 
-  describe "GET privacy" do
+  describe "GET #privacy" do
     before :each do
       get :privacy
     end
@@ -56,7 +56,7 @@ describe PagesController do
     end  
   end
 
-  describe "GET mobile_under_construction" do
+  describe "GET #mobile_under_construction" do
     before :each do
       get :mobile_under_construction
     end
@@ -82,8 +82,7 @@ describe PagesController do
     end  
   end
 
-  describe "GET dashboard unauthenticated at https" do
-    
+  describe "GET #dashboard (unauthenticated via https)" do
     before :each do
       request.env['HTTPS'] = 'on'
       get :dashboard
@@ -92,11 +91,9 @@ describe PagesController do
     it "should return a 401 with no basic auth" do
       response.status.should == 401
     end
-  
   end
 
-  describe "GET dashboard unauthenticated at http" do
-    
+  describe "GET #dashboard (unauthenticated via http)" do
     before :each do
       get :dashboard
     end
@@ -104,11 +101,9 @@ describe PagesController do
     it "should return a 301 redirect to the https site" do
       response.status.should == 301
     end
-  
   end
   
-  describe "GET dashboard authenticated at http" do
-    
+  describe "GET #dashboard (authenticated via http)" do
     before :each do
       http_login
       get :dashboard
@@ -117,11 +112,9 @@ describe PagesController do
     it "should return a 301 redirect to the https site" do
       response.status.should == 301
     end
-  
   end
   
-  describe "GET dashboard authenticated at https" do
-    
+  describe "GET #dashboard (authenticated via https)" do
     before :each do
       request.env['HTTPS'] = 'on'
       http_login
@@ -150,12 +143,10 @@ describe PagesController do
     
     it "renders the :privacy view" do
       response.should render_template :dashboard
-    end  
-    
+    end   
   end
   
-  describe "GET login unauthenticated" do
-       
+  describe "GET #login (unauthenticated)" do  
     before :each do
       request.env['HTTPS'] = 'on'
       get :login
@@ -164,11 +155,9 @@ describe PagesController do
     it "should return a 401 with no basic auth" do
       response.status.should == 401
     end
-  
   end
 
-  describe "GET login authenticated" do
-    
+  describe "GET #login (authenticated)" do
     before :each do
       request.env['HTTPS'] = 'on'
       http_login      
@@ -182,7 +171,6 @@ describe PagesController do
     it 'should redirect to the dashboard' do
       response.should redirect_to "/Dashboard"
     end
-  end
-   
+  end  
 
 end
