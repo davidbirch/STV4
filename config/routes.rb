@@ -36,10 +36,10 @@ STV4::Application.routes.draw do
   #scope :constraints => { :protocol => 'http' } do  
 
     # special routes for /region
-    get ':region_name' => 'guide#show', :constraints => {:formats => [:html]}
+    get ':region_name' => 'guide#show', :constraints => {:format => "html"}
       
     # special route for /region/sport
-    get ':region_name/:sport_name' => 'guide#show', :constraints => {:formats => [:html]}
+    get ':region_name/:sport_name' => 'guide#show', :constraints => {:format => "html"}
   
   #end
   

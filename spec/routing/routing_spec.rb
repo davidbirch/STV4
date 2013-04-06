@@ -29,6 +29,10 @@ describe "routing" do
   it "to /Region/Sport" do
     get("/Melbourne/Cricket").should route_to("guide#show", {:region_name => "Melbourne", :sport_name => "Cricket"})
   end
+  
+  it "to /assets/obscure_image_name.png" do
+    get("/assets/obscure_image_name.png").should_not be_routable
+  end
     
   
 end
