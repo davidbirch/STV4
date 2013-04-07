@@ -10,9 +10,7 @@ class ChannelsController < ApplicationController
 
     @title = "Channels | Sport on Television in Australia"
     @breadcrumb = "Channels"
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
-        
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @channels }
@@ -26,8 +24,6 @@ class ChannelsController < ApplicationController
     
     @title = "Channel: " + @channel.name + " | Sport on Television in Australia"
     @breadcrumb = "Channel: "+ @channel.name
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
     
     respond_to do |format|
       format.html # show.html.erb
@@ -42,8 +38,6 @@ class ChannelsController < ApplicationController
 
     @title = "Channel | Sport on Television in Australia"
     @breadcrumb = "Channel"
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
     
     respond_to do |format|
       format.html # new.html.erb
@@ -57,8 +51,6 @@ class ChannelsController < ApplicationController
     
     @title = "Channel: " + @channel.name + " | Sport on Television in Australia"
     @breadcrumb = "Channel: "+ @channel.name
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
     
   end
 

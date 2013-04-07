@@ -4,7 +4,6 @@ class GuideController < ApplicationController
   def index
     @title = page_title
     @region_touch_icon_extension = page_region_touch_icon_extension
-    @meta_keywords = page_meta_keywords
     @meta_description = page_meta_description
     @news_entries = page_news_entries
       
@@ -28,7 +27,6 @@ class GuideController < ApplicationController
     
     @title = page_title
     @region_touch_icon_extension = page_region_touch_icon_extension
-    @meta_keywords = page_meta_keywords
     @meta_description = page_meta_description
     @news_entries = page_news_entries
      
@@ -49,12 +47,11 @@ class GuideController < ApplicationController
         temp_region = @region.name+", Australia"
       end
        
-      temp_sport + " on Television in "+ temp_region + " | Live " + temp_sport + " on TV | SPORT ON TV"
+      temp_sport + " on Television in "+ temp_region + " | Live " + temp_sport + " on TV"
     end
     
     def page_meta_keywords
-      "tv guide, sport, television, coverage, tonight, live, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    end
+      end
     
     def page_region_touch_icon_extension
       if @region.nil?
@@ -97,18 +94,6 @@ class GuideController < ApplicationController
     end
   
     def page_news_entries
-      
-      #if @sport.nil?
-      #  temp_sport = "Sport"
-      #else
-      #  temp_sport = @sport.name
-      #end
-      
-      #if @region.nil?
-      #  temp_region = "Australia"
-      #else
-      #  temp_region = @region.name+"+Australia"
-      #end
        
       if !@sport.nil?
         feed_uri_search_string = URI.escape(@sport.name)

@@ -6,6 +6,10 @@ describe "routing" do
     get("/").should route_to("guide#index")
   end
 
+  it "to root" do
+    get(root_path).should route_to("guide#index")
+  end
+
   it "to /Contact" do
     get("/Contact").should route_to("pages#contact")
   end

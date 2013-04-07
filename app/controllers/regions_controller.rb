@@ -10,9 +10,7 @@ class RegionsController < ApplicationController
 
     @title = "Regions | Sport on Television in Australia"
     @breadcrumb = "Regions"
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @regions }
@@ -26,8 +24,6 @@ class RegionsController < ApplicationController
 
     @title = "Region: " + @region.name + "| Sport on Television in Australia"
     @breadcrumb = "Region: "+ @region.name
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
     
     respond_to do |format|
       format.html # show.html.erb
@@ -42,8 +38,6 @@ class RegionsController < ApplicationController
 
     @title = "Region | Sport on Television in Australia"
     @breadcrumb = "Region"
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
     
     respond_to do |format|
       format.html # new.html.erb
@@ -57,8 +51,6 @@ class RegionsController < ApplicationController
     
     @title = "Region: " + @region.name + "| Sport on Television in Australia"
     @breadcrumb = "Region: "+ @region.name
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
     
   end
 

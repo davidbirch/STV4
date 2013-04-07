@@ -1,0 +1,23 @@
+# Configuration information for the site variables
+
+development:
+    default_meta_author: contact@sportontv.com.au
+    default_meta_keywords: tv guide, sport, television, coverage, tonight, live, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth
+    default_meta_description: Your tv guide for sport in Australia.  Coverage of all sport on television.  Watch live sport on Free-to-air or Pay TV.
+    default_region_touch_icon_extension: ''
+    default_title: Sport on Television in Australia | Live sport on TV | SPORT ON TV
+    
+test:
+    default_meta_author: contact@sportontv.com.au
+    default_meta_keywords: tv guide, sport, television, coverage, tonight, live, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth
+    default_meta_description: Your tv guide for sport in Australia.  Coverage of all sport on television.  Watch live sport on Free-to-air or Pay TV.
+    default_region_touch_icon_extension: ''
+    default_title: Sport on Television in Australia | Live sport on TV | SPORT ON TV
+    
+production:
+    default_meta_author: contact@sportontv.com.au
+    default_meta_keywords: tv guide, sport, television, coverage, tonight, live, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth
+    default_meta_description: Your tv guide for sport in Australia.  Coverage of all sport on television.  Watch live sport on Free-to-air or Pay TV.
+    default_region_touch_icon_extension: ''
+    default_title: Sport on Television in Australia | Live sport on TV | SPORT ON TV   
+    

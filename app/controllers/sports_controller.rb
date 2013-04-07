@@ -10,9 +10,7 @@ class SportsController < ApplicationController
 
     @title = "Sports | Sport on Television in Australia"
     @breadcrumb = "Sports"
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sports }
@@ -26,9 +24,7 @@ class SportsController < ApplicationController
 
     @title = "Sport: " + @sport.name + " | Sport on Television in Australia"
     @breadcrumb = "Sport: "+ @sport.name
-    @meta_keywords = "sport, television, tv, coverage, tonight, Australia, Melbourne, Sydney, Brisbane, Adalaide, Perth"
-    @meta_description = "Your source for sport on television in Australia.  Find out when sport is on Free-to-air or Pay TV.  Watch live sport on TV tonight." 
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @sport }
