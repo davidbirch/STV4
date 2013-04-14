@@ -35,6 +35,7 @@ class SportsController < ApplicationController
   # GET /sports/new.json
   def new
     @sport = Sport.new
+    @breadcrumb = "New Sport"
 
     respond_to do |format|
       format.html # new.html.erb

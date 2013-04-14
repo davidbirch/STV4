@@ -35,9 +35,7 @@ class ChannelsController < ApplicationController
   # GET /channels/new.json
   def new
     @channel = Channel.new
-
-    @title = "Channel | Sport on Television in Australia"
-    @breadcrumb = "Channel"
+    @breadcrumb = "New Channel"
     
     respond_to do |format|
       format.html # new.html.erb

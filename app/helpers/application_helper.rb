@@ -18,8 +18,6 @@ module ApplicationHelper
   end
   
   def meta_author(meta_author = nil)
-    
-    
     if meta_author.present?
       meta_author
     elsif @meta_author.present?
@@ -58,12 +56,7 @@ module ApplicationHelper
       site_variables["default_region_touch_icon_extension"]
     end
   end
-  
-  
-  
-  
-  
-  
+    
   private
   
     def site_variables

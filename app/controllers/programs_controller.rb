@@ -48,6 +48,7 @@ class ProgramsController < ApplicationController
   # GET /programs/new.json
   def new
     @program = Program.new
+    @breadcrumb = "New Program"
 
     respond_to do |format|
       format.html # new.html.erb

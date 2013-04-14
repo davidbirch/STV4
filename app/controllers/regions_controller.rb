@@ -35,9 +35,7 @@ class RegionsController < ApplicationController
   # GET /regions/new.json
   def new
     @region = Region.new
-
-    @title = "Region | Sport on Television in Australia"
-    @breadcrumb = "Region"
+    @breadcrumb = "New Region"
     
     respond_to do |format|
       format.html # new.html.erb

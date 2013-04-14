@@ -35,4 +35,30 @@ describe "Pages" do
     end 
   end
   
+  describe "dashboard page" do
+    it "should exist when authenticated" do
+      http_feature_login
+      visit "/Dashboard"
+      page.status_code.should be(200)  
+    end
+    
+    it "should not exist when unauthenticated" do
+      visit "/Dashboard"
+      page.status_code.should be(401)  
+    end    
+  end
+  
+  describe "login page" do
+    it "should exist when authenticated" do
+      http_feature_login
+      visit "/Login"
+      page.status_code.should be(200)  
+    end
+    
+    it "should not exist when unauthenticated" do
+      visit "/Login"
+      page.status_code.should be(401)  
+    end    
+  end
+  
 end
