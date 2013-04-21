@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <% @regions.each do |region| %>
-      <tr>
+      <tr id="region_<%= region.id %>">
         <td><%= link_to region.name, region %></td>
         <td><%= region.programs.count %></td>
         <td>

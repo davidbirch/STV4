@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <% @sports.each do |sport| %>
-      <tr>
+      <tr id="sport_<%= sport.id %>">
         <td><%= link_to sport.name, sport %></td>
         <td><%= sport.programs.count %></td>
         <td>

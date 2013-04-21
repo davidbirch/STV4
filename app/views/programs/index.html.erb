@@ -16,7 +16,7 @@
   </thead>
   <tbody>
     <% @programs.each do |program| %>
-      <tr>
+      <tr id="program_<%= program.id %>">
         <td><%= program.region.name %></td>
         <td><%= link_to "<i class=\"icon-search\"></i>".html_safe, "http://www.google.com.au/search?q=" + program.full_title, :target => "_blank" %></td>
         <td><%= link_to program.full_title, program %></td>

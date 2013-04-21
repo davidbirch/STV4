@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <% @sport_keywords.each do |sport_keyword| %>
-      <tr>
+      <tr id="sport_keyword_<%= sport_keyword.id %>">
         <td><%= sport_keyword.rule_type %></td>
         <td><%= link_to sport_keyword.value, sport_keyword %></td>
         <td><% unless sport_keyword.sport.nil? %><%= sport_keyword.sport.name %><% end %></td>
