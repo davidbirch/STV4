@@ -9,13 +9,13 @@
 #
 
 every 1.day, :at => '4:00 pm' do
-  command "perl /home/zebraadmin/get_xmltv_guide_data.pl >> /home/zebraadmin/log/cron.log"
+  command "perl /home/yakadmin/get_xmltv_guide_data.pl >> /home/yakadmin/log/cron.log"
 end
 
 every 1.day, :at => '5:00 pm' do
-  command "perl /home/zebraadmin/load_raw_guide_data.pl >> /home/zebraadmin/log/cron.log"
+  command "perl /home/yakadmin/load_raw_guide_data.pl >> /home/yakadmin/log/cron.log"
 end
 
 every 3.hours do
-  runner 'NightlyJob.new', :environment => 'production' 
+  runner 'NightlyJob.new', :environment => 'development' 
 end
